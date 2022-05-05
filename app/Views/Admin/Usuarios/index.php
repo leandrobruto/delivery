@@ -27,8 +27,13 @@
         <h4 class="card-title"><?php echo $titulo ?></h4>
 
         <div class="ui-widget">
-          <input id="query" name="query" placeholder="" class="form-control bg-light mb-5">
+          <input id="query" name="query" placeholder="Pesquise por um usuário.." class="form-control bg-light mb-5">
         </div>
+
+        <a href="<?php echo site_url("admin/usuarios/criar"); ?>" class="btn btn-success btn-s float-right mb-5">
+          <i class="mdi mdi-plus btn-icon-prepend"></i>
+          Cadastrar
+      </a>
 
         <div class="table-responsive">
           <table class="table table-hover">
@@ -43,7 +48,10 @@
             <tbody>
               <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                  <td><?php echo $usuario->nome; ?></td>
+                  <td>
+                  <a href="<?php echo site_url("admin/usuarios/show/$usuario->id"); ?>">
+                      <?php echo $usuario->nome; ?></td>
+                    </a>
                   <td><?php echo $usuario->email; ?></td>
                   <td><?php echo $usuario->cpf; ?></td>
                   <td><?php echo ($usuario->ativo) ? '<label class="badge badge-danger">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
