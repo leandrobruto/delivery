@@ -41,6 +41,9 @@ class UsuarioModel extends Model
             'required' => 'O campo E-mail é obrigatório.',
             'is_unique' => 'Desculpe. Esse email já existe.',
         ],
+        'password' => [
+            'required' => 'O campo Senha é obrigatório.',
+        ],
     ];
 
     // Eventos callback
@@ -78,5 +81,24 @@ class UsuarioModel extends Model
     public function desabilitaValidacaoSenha () {
         unset($this->validationRules['password']);
         unset($this->validationRules['password_confirmation']);
+    }
+
+    public function desfazerExclusao(int $id) {
+
+        return $this->protect(false)
+                    ->where('id', $id)
+                    ->set('deletado_em', null)
+                    ->update();
+    }
+
+    /**
+     * @uso Classe Autenticacao
+     * @param string $email
+     * @return object $usuario
+     */
+    public function buscaUsuarioPorEmail(string $email) {
+
+        return $this->where('email', $email)->first();
+
     }
 }

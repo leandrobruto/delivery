@@ -30,10 +30,10 @@
           <input id="query" name="query" placeholder="Pesquise por um usuário.." class="form-control bg-light mb-5">
         </div>
 
-        <a href="<?php echo site_url("admin/usuarios/criar"); ?>" class="btn btn-success btn-s float-right mb-5">
+        <a href="<?php echo site_url("admin/usuarios/criar"); ?>" class="btn btn-success btn-sm float-right mb-5">
           <i class="mdi mdi-plus btn-icon-prepend"></i>
           Cadastrar
-      </a>
+        </a>
 
         <div class="table-responsive">
           <table class="table table-hover">
@@ -43,22 +43,38 @@
                 <th>E-mail</th>
                 <th>CPF</th>
                 <th>Ativo</th>
+                <th>Situação</th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($usuarios as $usuario): ?>
                 <tr>
                   <td>
-                  <a href="<?php echo site_url("admin/usuarios/show/$usuario->id"); ?>">
+                    <a href="<?php echo site_url("admin/usuarios/show/$usuario->id"); ?>">
                       <?php echo $usuario->nome; ?></td>
                     </a>
                   <td><?php echo $usuario->email; ?></td>
                   <td><?php echo $usuario->cpf; ?></td>
-                  <td><?php echo ($usuario->ativo) ? '<label class="badge badge-danger">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
+                  <td><?php echo ($usuario->ativo && $usuario->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
+                  <td>
+                    <?php echo ($usuario->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
+                  
+                    <?php if ($usuario->deletado_em != null): ?>
+                      <a href="<?php echo site_url("admin/usuarios/desfazerExclusao/$usuario->id"); ?>" class="badge badge-dark ml-2">
+                        <i class="mdi mdi-undo btn-icon-prepend"></i>
+                        Desfazer
+                      </a>
+                    <?php endif; ?>
+
+                  </td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
           </table>
+
+          <div class="mt-3">
+            <?php echo $pager->links(); ?>
+          </div>
         </div>
       </div>
     </div>

@@ -39,13 +39,10 @@
         <?php echo form_open("admin/usuarios/excluir/$usuario->id"); ?>
 
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Atenção!</strong> Tem certeza da exclusão do usuario <strong><?php echo esc($usuario->nome) ?>?</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <strong>Atenção!</strong> Tem certeza da exclusão do usuário <strong><?php echo esc($usuario->nome) ?>?</strong>
           </div>
 
-          <button type="submit" class="btn btn-danger btn-sm mr-2">
+          <button type="submit" class="btn btn-danger btn-sm mr-2"
               <i class="mdi mdi-trash-can btn-icon-prepend"></i>
               Excluir
           </button>

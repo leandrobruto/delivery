@@ -18,7 +18,8 @@ class Usuarios extends BaseController
     {
         $data = [
             'titulo' => 'Listando os usuários',
-            'usuarios' => $this->usuarioModel->withDeleted(true)->findAll(),
+            'usuarios' => $this->usuarioModel->withDeleted(true)->paginate(2),
+            'pager' => $this->usuarioModel->pager,
         ];
 
         return view('Admin/Usuarios/index', $data);
@@ -95,6 +96,10 @@ class Usuarios extends BaseController
     public function editar($id = null)
     {
         $usuario = $this->buscaUsuarioOu404($id);
+
+        if ($usuario->deletado_em != null) {
+            return redirect()->back()->with('info', "O usuário $usuario->nome encontra-se excluído. Portanto, não é possível editá-lo.");
+        }
         
         $data = [
             'titulo'     => "Editando o usuário $usuario->nome",
@@ -108,13 +113,18 @@ class Usuarios extends BaseController
     {
         if ($this->request->getMethod() === 'post') {
             $usuario = $this->buscaUsuarioOu404($id);
+
+            if ($usuario->deletado_em != null) {
+                return redirect()->back()->with('info', "O usuário $usuario->nome encontra-se excluído. Portanto, não é possível editá-lo.");
+            }
+
         } else {
             /* Não é POST */
             return redirect()->back();
         }
 
         $post = $this->request->getPost();
-
+// dd($post);
         if (empty($post['password'])) {
             $this->usuarioModel->desabilitaValidacaoSenha();
             unset($post['password']);
@@ -129,10 +139,10 @@ class Usuarios extends BaseController
         
         if ($this->usuarioModel->protect(false)->save($usuario)) {
             return redirect()->to(site_url("admin/usuarios/show/$usuario->id"))
-                            ->with('success', "Usuário $usuario->nome atualizado com sucesso!");
+                            ->with('sucesso', "Usuário $usuario->nome atualizado com sucesso!");
         } else {
             return redirect()->back()->with('errors_model', $this->usuarioModel->errors())
-                                    ->with('atencao', "Por favor verifique os erros abaixo.")
+                                    ->with('atencao', "Por favor, verifique os erros abaixo.")
                                     ->withInput();
         }
     }
@@ -141,9 +151,18 @@ class Usuarios extends BaseController
     {
         $usuario = $this->buscaUsuarioOu404($id);
 
+        if ($usuario->deletado_em != null) {
+            return redirect()->back()->with('info', "O usuário $usuario->nome já encontra-se excluído!");
+        }
+
+        if ($usuario->is_admin) {
+            return redirect()->back()->with('info', "Não é possível excluir um Usuário <b>Administrador</b>.");
+        }
+
         if ($this->request->getMethod() === 'post') {
             $this->usuarioModel->delete($id);
-            return redirect()->to(site_url('admin/usuarios'))->with('sucesso', "Usuário $usuario->nome excluído com sucesso.");
+            return redirect()->to(site_url('admin/usuarios'))
+                            ->with('sucesso', "Usuário $usuario->nome excluído com sucesso.");
         }
 
         $usuario = $this->buscaUsuarioOu404($id);
@@ -156,16 +175,33 @@ class Usuarios extends BaseController
         return view('Admin/Usuarios/excluir', $data);
     }
 
+    public function desfazerExclusao($id = null)
+    {
+        $usuario = $this->buscaUsuarioOu404($id);
+        
+        if ($usuario->deletado_em == null) {
+            return redirect()->back()->with('info', "Apenas usuários excluídos podem ser recuperados.");
+        }
+
+        if ($this->usuarioModel->desfazerExclusao($id)) {
+            return redirect()->back()->with('sucesso', "Exclusão desfeita com sucesso!");
+        } else {
+            return redirect()->back()->with('errors_model', $this->usuarioModel->errors())
+                                    ->with('atencao', "Por favor verifique os erros abaixo.")
+                                    ->withInput();
+        }
+    }
+
     /**
      * @param int $id
-     * @return usuario
+     * @return objeto usuario
      */
     private function buscaUsuarioOu404($id = null)
     {
-        if (!$id || !$usuario = $this->usuarioModel->where('id', $id)->first()) {
+        if (!$id || !$usuario = $this->usuarioModel->withDeleted(true)->where('id', $id)->first()) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o usuário $id");
         }
-
+        
         return $usuario;
     }
 }
