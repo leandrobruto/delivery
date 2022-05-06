@@ -66,33 +66,21 @@
                         <div class="brand-logo">
                             <img src="<?php echo site_url('admin/') ?>images/logo.svg" alt="logo">
                         </div>
-                        <h4>Olá, seja bem vindo(a)!</h4>
-                        <h6 class="font-weight-light mb-3">Por favor, realize o login.</h6>
+                        <h4>Recuperando a senha!</h4>
+                        <h6 class="font-weight-light mb-3"><?php echo $titulo ?></h6>
                         
-                        <?php echo form_open('login/criar'); ?>
+                        <?php echo form_open('password/processaesqueci'); ?>
                             <div class="form-group">
-                                <input type="email" name="email" value="<?php echo old('email'); ?>" class="form-control form-control-lg" id="email" placeholder="Digite o seu e-mail.">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Digite a sua senha.">
+                                <input type="email" name="email" value="<?php echo old('email'); ?>" class="form-control form-control-lg" id="email" placeholder="Digite o seu e-mail..">
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" style="max-width: 80% !important" class="btn btn-primary btn-lg font-weight-medium auth-form-btn">Entrar</button>
+                                <input id="btn-reset-senha" type="submit" style="max-width: 80% !important" class="btn btn-primary btn-lg font-weight-medium auth-form-btn" value="Recuperar senha">
                             </div>
                             <div class="mt-3 d-flex justify-content-between align-items-center">
-                                <div class="form-check">
-                                    <label class="form-check-label text-muted">
-                                        <input type="checkbox" class="form-check-input">
-                                        Me mantenha logado.
-                                    </label>
-                                </div>
-                                <a href="<?php echo site_url('password/esqueci') ?>" class="auth-link text-black">Esqueci a minha senha.</a>
-                            </div>
-                            
-                            <div class="text-center mt-4 font-weight-light">
-                                Ainda não tem uma conta? <a href="<?php echo site_url('registrar'); ?>" class="text-primary">Criar conta</a>
+                                <a href="<?php echo site_url('login') ?>" class="auth-link text-black">Lembrei a minha senha.</a>
                             </div>
                         <?php echo form_close(); ?>
+
                     </div>
                 </div>
             </div>
@@ -106,5 +94,14 @@
 <!-- Aqui enviamos para o template principal os scripts -->
 <?php echo $this->section('scripts'); ?>
 
+<script>
+
+$("form").submit(function () {
+    $(this).find(":submit").attr('disabled', 'disabled');
+
+    $("#btn-reset-senha").val("Enviando e-mail de recuperação..");
+});
+
+</script>
 
 <?php echo $this->endSection(); ?>

@@ -124,7 +124,7 @@ class Usuarios extends BaseController
         }
 
         $post = $this->request->getPost();
-// dd($post);
+        
         if (empty($post['password'])) {
             $this->usuarioModel->desabilitaValidacaoSenha();
             unset($post['password']);
