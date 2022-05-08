@@ -18,7 +18,7 @@ class Usuarios extends BaseController
     {
         $data = [
             'titulo' => 'Listando os usuários',
-            'usuarios' => $this->usuarioModel->withDeleted(true)->paginate(2),
+            'usuarios' => $this->usuarioModel->withDeleted(true)->paginate(10),
             'pager' => $this->usuarioModel->pager,
         ];
 
@@ -164,8 +164,6 @@ class Usuarios extends BaseController
             return redirect()->to(site_url('admin/usuarios'))
                             ->with('sucesso', "Usuário $usuario->nome excluído com sucesso.");
         }
-
-        $usuario = $this->buscaUsuarioOu404($id);
 
         $data = [
             'titulo'     => "Excluindo o usuário $usuario->nome",
