@@ -94,7 +94,7 @@ class Categorias extends BaseController
         $categoria = $this->buscaCategoriaOu404($id);
 
         if ($categoria->deletado_em != null) {
-            return redirect()->back()->with('info', "A categoria $categoria->nome encontra-se excluído. Portanto, não é possível editá-la.");
+            return redirect()->back()->with('info', "A categoria $categoria->nome encontra-se excluída. Portanto, não é possível editá-la.");
         }
         
         $data = [
