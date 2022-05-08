@@ -170,9 +170,9 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <i class="mdi mdi-home menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
+              <a class="nav-link" href="<?php echo site_url('admin/usuarios'); ?>">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Usuarios</span>
               </a>
             </li>
             <li class="nav-item">

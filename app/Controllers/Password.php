@@ -27,17 +27,17 @@ class Password extends BaseController
             
             $usuario = $this->usuarioModel->buscaUsuarioPorEmail($this->request->getPost('email'));
 
-            if ($usuario === null || $usuario->ativo) {
+            if ($usuario === null || !$usuario->ativo) {
                 return redirect()->to(site_url('password/esqueci'))
                         ->with('atencao', 'Não encontramos um conta válida com esse email.')
                         ->withInput();
             }
 
             $usuario->iniciaPasswordReset();
-
+            
             $this->usuarioModel->save($usuario);
 
-            $this->enviaEmailRedefinicaoSenha();
+            $this->enviaEmailRedefinicaoSenha($usuario);
 
             return redirect()->to(site_url('login'))
                             ->with('sucesso', 'Email de redefinição de senha enviado para a sua caixa de entrada.');
@@ -49,7 +49,7 @@ class Password extends BaseController
     }
 
     public function reset($token = null) {
-
+        
         if ($token === null) {
             return redirect()->to(site_url('password/esqueci'))->with('atencao', 'Link inválido ou expirado.');
         }
@@ -94,9 +94,10 @@ class Password extends BaseController
                 /**
                  * Atualizamos novamente o usuário com os novos valores definidos acima.
                  */
-                $this->usuarioModel->save($usuario)
+                $this->usuarioModel->save($usuario);
 
                 return redirect()->to(site_url('login'))->with('sucesso', 'Nova senha cadastrada com sucesso!');
+                
             } else {
                 return redirect()->to(site_url("password/reset/$token"))
                                 ->with('errors_model', $this->usuarioModel->errors())
@@ -109,11 +110,11 @@ class Password extends BaseController
         }
     }
 
-    private function enviaEmailRedefinicaoSenha() {
+    private function enviaEmailRedefinicaoSenha(object $usuario) {
 
         $email = \Config\Services::email();
 
-        $email->setfrom('no-reply@delivery.com.br', 'Delivery');
+        $email->setFrom('no-reply@delivery.com.br', 'Delivery');
         $email->setTo($usuario->email);
 
         $email->setSubject('Redefinição de senha.');

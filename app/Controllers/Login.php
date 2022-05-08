@@ -18,13 +18,14 @@ class Login extends BaseController
 
     public function criar()
     {
+        
         if ($this->request->getMethod('post')) {
             
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
             $autenticacao = service('autenticacao');
-
+            
             if ($autenticacao->login($email, $password)) {
                 $usuario = $autenticacao->pegaUsuarioLogado();
 

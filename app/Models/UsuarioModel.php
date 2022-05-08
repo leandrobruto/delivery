@@ -9,7 +9,7 @@ class UsuarioModel extends Model
 {
     protected $table            = 'usuarios';
     protected $returnType       = 'App\Entities\Usuario';
-    protected $allowedFields    = ['nome', 'cpf', 'telefone', 'email, password, reset_hash, reset_expira_em'];
+    protected $allowedFields    = ['nome', 'cpf', 'telefone', 'email', 'password', 'reset_hash', 'reset_expira_em'];
     // Datas
     protected $useTimestamps    = true;
     protected $createdField     = 'criado_em';
@@ -116,7 +116,7 @@ class UsuarioModel extends Model
             /**
              * Verificamos se o token não está expirado de acordo com a data e hora atuais
              */
-            if ($usuario->reset_expira_em < data('Y-m-d H:i:s')) {
+            if ($usuario->reset_expira_em < date('Y-m-d H:i:s')) {
 
                 /**
                  * Token está expirado, então setamos o $usuario = null

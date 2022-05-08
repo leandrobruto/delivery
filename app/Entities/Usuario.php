@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
+use App\Libraries\Token;
 
 class Usuario extends Entity
 {
@@ -20,7 +21,7 @@ class Usuario extends Entity
 
         /* Instancia o objeto da classe Token */
         $token = new Token();
-
+        
         /**
          * @descrição: Atribuímos ao objeto Usuário ($this) o atributo 'reset_token' que conterá o token gerado
          *             para que possamos acessá-lo na view 'Password/reset_email'.

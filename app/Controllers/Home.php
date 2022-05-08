@@ -13,13 +13,13 @@ class Home extends BaseController
     {
         $email = \Config\Services::email();
 
-        $email->from('your@example.com', 'Your Name');
-        $email->to('someone@example.com');
-        // $email->cc('another@another-example.com');
-        // $email->bcc('them@their-example.com');
+        $email->setFrom('your@example.com', 'Your Name');
+        $email->setTo('sowadok608@chokxus.com');
+        // $email->setCC('another@another-example.com');
+        // $email->setBCC('them@their-example.com');
 
-        $email->subject('Email Test');
-        $email->message('Testing the email class.');
+        $email->setSubject('Email Test');
+        $email->setMessage('Testing the email class.');
 
         if ($email->send()) {
             echo 'Email sent successfully';
