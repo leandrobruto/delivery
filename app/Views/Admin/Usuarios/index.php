@@ -51,8 +51,9 @@
                 <tr>
                   <td>
                     <a href="<?php echo site_url("admin/usuarios/show/$usuario->id"); ?>">
-                      <?php echo $usuario->nome; ?></td>
+                      <?php echo $usuario->nome; ?>
                     </a>
+                  </td>
                   <td><?php echo $usuario->email; ?></td>
                   <td><?php echo $usuario->cpf; ?></td>
                   <td><?php echo ($usuario->ativo && $usuario->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>

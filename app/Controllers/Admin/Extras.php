@@ -150,7 +150,7 @@ class Extras extends BaseController
         }
 
         $data = [
-            'titulo'     => "Excluindo a estra $extra->nome",
+            'titulo'     => "Excluindo a extra $extra->nome",
             'extra' => $extra,
         ];
 

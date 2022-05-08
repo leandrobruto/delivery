@@ -4,13 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ExtraModel extends Model
+class MedidaModel extends Model
 {
-    protected $table            = 'extras';
+    protected $table            = 'medidas';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'App\Entities\Extra';
+    protected $returnType       = 'App\Entities\Medida';
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['nome', 'slug', 'preco', 'descricao', 'ativo'];
+    protected $allowedFields    = ['nome', 'descricao', 'ativo'];
 
     // Dates
     protected $useTimestamps = true;
@@ -21,20 +21,20 @@ class ExtraModel extends Model
 
     // Validation
     protected $validationRules = [
-        'nome' => 'required|min_length[2]|max_length[120]|is_unique[extras.nome]',
+        'nome' => 'required|min_length[2]|max_length[120]|is_unique[medidas.nome]',
     ];
 
     protected $validationMessages = [
         'nome' => [
             'required' => 'O campo Nome é obrigatório.',
-            'is_unique' => 'Esse medida já existe.'
+            'is_unique' => 'Esse extra já existe.'
         ],
     ];
 
     /**
-     * @uso Controller extras no método procurar com o autocomplete
+     * @uso Controller medidas no método procurar com o autocomplete
      * @param string $term
-     * @return array extras
+     * @return array medidas
      */
     public function procurar ($term) {
         if ($term === null) {
