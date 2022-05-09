@@ -7,7 +7,6 @@ use CodeIgniter\Model;
 class MedidaModel extends Model
 {
     protected $table            = 'medidas';
-    protected $useAutoIncrement = true;
     protected $returnType       = 'App\Entities\Medida';
     protected $useSoftDeletes   = true;
     protected $allowedFields    = ['nome', 'descricao', 'ativo'];

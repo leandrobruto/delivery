@@ -7,7 +7,7 @@
 
     <div class="form-group col-md-6">
         <label for="nome">Preço de venda</label>
-        <input type="text" class="money form-control" name="preco" id="nome" value="<?php echo old('preco', esc($extra->preco)); ?>">
+        <input type="text" class=" form-control" name="preco" id="nome" value="<?php echo old('preco', esc($extra->preco)); ?>">
     </div>
 
     <div class="form-group col-md-12">

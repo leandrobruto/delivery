@@ -7,7 +7,6 @@ use CodeIgniter\Model;
 class ExtraModel extends Model
 {
     protected $table            = 'extras';
-    protected $useAutoIncrement = true;
     protected $returnType       = 'App\Entities\Extra';
     protected $useSoftDeletes   = true;
     protected $allowedFields    = ['nome', 'slug', 'preco', 'descricao', 'ativo'];

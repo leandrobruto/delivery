@@ -1,13 +1,8 @@
 <div class="form-row">
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" id="nome" value="<?php echo old('nome', esc($medida->nome)); ?>">
-    </div>
-
-    <div class="form-group col-md-6">
-        <label for="nome">Slug</label>
-        <input type="text" class="money form-control" name="preco" id="nome" value="<?php echo old('preco', esc($medida->slug)); ?>">
     </div>
 
     <div class="form-group col-md-12">
