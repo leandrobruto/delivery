@@ -6,37 +6,33 @@ use CodeIgniter\Model;
 
 class ProdutoExtraModel extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'produtoextras';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $table            = 'produtos_extras';
+    protected $primaryKey       = 'object';
+    protected $allowedFields    = ['produto_id', 'extra_id'];
 
-    // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    // Validações
+    protected $validationRules = [
+        'produto_id' => 'required|integer',
+        'extra_id' => 'required|integer',
+    ];
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    protected $validationMessages = [
+        'extra_id' => [
+            'required' => 'O campo Extra é obrigatório.',
+        ],
+    ];
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    /**
+     * @descrição: Recupera os extras do produto em questão
+     * @uso Controller Admin/Produtos/extra($id = null)
+     * @param int $produto_id
+     */
+    public function buscaExtrasDoProduto(int $produto_id = null) {
+
+        return $this->select('extras.nome AS extra, extras.preco, produtos_extras.*')
+                    ->join('extras', 'extras.id = produtos_extras.extra_id')
+                    ->join('produtos', 'produtos.id = produtos_extras.produto_id')
+                    ->where('produtos_extras.produto_id', $produto_id)
+                    ->findAll();
+    }
 }
