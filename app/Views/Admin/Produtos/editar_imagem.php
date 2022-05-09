@@ -72,6 +72,6 @@
 <!-- Aqui enviamos para o template principal os scripts -->
 <?php echo $this->section('scripts'); ?>
 
-  <script src="<?php echo site_url('admin/') ?>js/file-upload.js"></script>
+  <script src="<?php echo site_url('admin/js/file-upload.js') ?>"></script>
 
 <?php echo $this->endSection(); ?>

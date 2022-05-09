@@ -265,36 +265,36 @@ class Produtos extends BaseController
     {
         $produto = $this->buscaProdutoOu404($id);
 
-        if ($extra->deletado_em != null) {
-            return redirect()->back()->with('info', "O extra $extra->nome já encontra-se excluído!");
+        if ($produto->deletado_em != null) {
+            return redirect()->back()->with('info', "O produto $produto->nome já encontra-se excluído!");
         }
 
         if ($this->request->getMethod() === 'post') {
-            $this->extraModel->delete($id);
-            return redirect()->to(site_url('admin/extras'))
-                            ->with('sucesso', "Extra $extra->nome excluído com sucesso.");
+            $this->produtoModel->delete($id);
+            return redirect()->to(site_url('admin/produtos'))
+                            ->with('sucesso', "Produto $produto->nome excluído com sucesso.");
         }
 
         $data = [
-            'titulo'     => "Excluindo a extra $extra->nome",
-            'extra' => $extra,
+            'titulo'     => "Excluindo o produto $produto->nome",
+            'produto' => $produto,
         ];
 
-        return view('Admin/Extras/excluir', $data);
+        return view('Admin/Produtos/excluir', $data);
     }
 
     public function desfazerExclusao($id = null)
     {
-        $extra = $this->buscaExtraOu404($id);
+        $produto = $this->buscaProdutoOu404($id);
         
-        if ($extra->deletado_em == null) {
-            return redirect()->back()->with('info', "Apenas extras excluídos podem ser recuperados.");
+        if ($produto->deletado_em == null) {
+            return redirect()->back()->with('info', "Apenas produtos excluídos podem ser recuperados.");
         }
 
-        if ($this->extraModel->desfazerExclusao($id)) {
+        if ($this->produtoModel->desfazerExclusao($id)) {
             return redirect()->back()->with('sucesso', "Exclusão desfeita com sucesso!");
         } else {
-            return redirect()->back()->with('errors_model', $this->extraModel->errors())
+            return redirect()->back()->with('errors_model', $this->produtoModel->errors())
                                     ->with('atencao', "Por favor verifique os erros abaixo.")
                                     ->withInput();
         }

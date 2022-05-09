@@ -28,7 +28,7 @@
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex justify-content-center">
           <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
-            <a class="navbar-brand brand-logo" href="<?php echo site_url('admin/') ?>index.html"><img src="<?php echo site_url('admin/') ?>images/logo.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="<?php echo site_url('admin/') ?>home"><img src="<?php echo site_url('admin/') ?>images/logo.svg" alt="logo"/></a>
             <a class="navbar-brand brand-logo-mini" href="<?php echo site_url('admin/') ?>index.html"><img src="<?php echo site_url('admin/') ?>images/logo-mini.svg" alt="logo"/></a>
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-sort-variant"></span>
@@ -177,25 +177,25 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url('admin/categorias'); ?>">
-                <i class="mdi mdi-box-shadow menu-icon"></i>
+                <i class="mdi mdi-food menu-icon"></i>
                 <span class="menu-title">Categorias</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url('admin/extras'); ?>">
-                <i class="mdi mdi-box-shadow menu-icon"></i>
+                <i class="mdi mdi-basket-fill menu-icon"></i>
                 <span class="menu-title">Extras</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url('admin/medidas'); ?>">
-                <i class="mdi mdi-box-shadow menu-icon"></i>
+                <i class="mdi mdi-scale menu-icon"></i>
                 <span class="menu-title">Medidas</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url('admin/produtos'); ?>">
-                <i class="mdi mdi-box-shadow menu-icon"></i>
+                <i class="mdi mdi-silverware-variant menu-icon"></i>
                 <span class="menu-title">Produtos</span>
               </a>
             </li>
