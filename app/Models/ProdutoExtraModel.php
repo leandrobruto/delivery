@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ProdutoExtraModel extends Model
 {
     protected $table            = 'produtos_extras';
-    protected $primaryKey       = 'object';
+    protected $returnType       = 'object';
     protected $allowedFields    = ['produto_id', 'extra_id'];
 
     // Validações
@@ -26,13 +26,14 @@ class ProdutoExtraModel extends Model
      * @descrição: Recupera os extras do produto em questão
      * @uso Controller Admin/Produtos/extra($id = null)
      * @param int $produto_id
+     * @param int $quantidade_paginacao
      */
-    public function buscaExtrasDoProduto(int $produto_id = null) {
+    public function buscaExtrasDoProduto(int $produto_id = null, $quantidade_paginacao) {
 
         return $this->select('extras.nome AS extra, extras.preco, produtos_extras.*')
                     ->join('extras', 'extras.id = produtos_extras.extra_id')
                     ->join('produtos', 'produtos.id = produtos_extras.produto_id')
                     ->where('produtos_extras.produto_id', $produto_id)
-                    ->findAll();
+                    ->paginate($quantidade_paginacao);
     }
 }

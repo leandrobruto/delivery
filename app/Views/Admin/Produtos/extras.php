@@ -44,7 +44,7 @@
 
               <select class="form-control js-example-basic-single" name="extra_id">
 
-                <option>Escolha..</option>
+                <option value="">Escolha..</option>
 
                 <?php foreach ($extras as $extra): ?>
 
@@ -74,9 +74,9 @@
 
         <div class="form-row">
 
-          <div class="col-md-18">
+          <div class="col-md-8">
             
-            <?php if (!empty($produtosExtras)): ?>
+            <?php if (empty($produtosExtras)): ?>
               <p>Esse produto não possui extras até o momento.</p>
             <?php else: ?>
               <h4 class="card-title">Extras do produto</h4>
@@ -89,21 +89,32 @@
                     <tr>
                       <th>Extra</th>
                       <th>Preço</th>
-                      <th>Remover</th>
+                      <th class="text-center">Remover</th>
                     </tr>
                   </thead>
                   <tbody>
 
                     <?php foreach ($produtosExtras as $exxtraProduto): ?>
                       <tr>
-                        <td><?php esc($exxtraProduto->nome); ?></td>
-                        <td><?php esc(number_format($exxtraProduto->preco, 2)); ?></td>
-                        <td><label class="badge badge-danger">&nbsp;X&nbsp;</label></td>
+                        <td><?php echo esc($exxtraProduto->extra); ?></td>
+                        <td>R$&nbsp;<?php echo esc(number_format($exxtraProduto->preco, 2, ',', '.')); ?></td>
+                        <td class="text-center">
+                          <?php echo form_open(site_url("admin/produtos/excluirextra/$exxtraProduto->id/$exxtraProduto->produto_id")) ?>
+
+                            <button type="submit" class="btn btn-sm badge badge-danger">&nbsp;X&nbsp;</button>
+                          
+                          <?php echo form_close(); ?>
+                        </td>
                       </tr>
                     <?php endforeach; ?>
 
                   </tbody>
                 </table>
+
+                <div class="mt-3">
+                  <?php echo $pager->links(); ?>
+                </div>
+
               </div>
             <?php endif; ?>
 
