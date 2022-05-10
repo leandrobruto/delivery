@@ -111,7 +111,7 @@
             Inserir especificação
           </button>
 
-          <a href="<?php echo site_url("admin/produtos/show/$medida->id"); ?>" class="btn btn-light text-dark btn-sm mt-4">
+          <a href="<?php echo site_url("admin/produtos/show/$produto->id"); ?>" class="btn btn-light text-dark btn-sm mt-4">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
             Voltar
           </a>
@@ -126,7 +126,7 @@
             
             <?php if (empty($produtoEspecificacoes)): ?>
 
-              <div class="alert alert-warning" role="alert">
+              <div class="alert alert-warning mt-4" role="alert">
                 <h4 class="alert-heading">Atenção!</h4>
                 <p>Esse produto não possui especificações até o momento. Portanto, ele <strong>não será exibido</strong> como opção de compra na área pública.</p>
                 <hr>

@@ -54,7 +54,7 @@ class FormasPagamento extends BaseController
             'forma' => $formaPagamento,
         ];
         
-        return view('Admin/FormasPagamento/criar', $formaPagamento);
+        return view('Admin/FormasPagamento/criar', $data);
     }
 
     public function cadastrar()
