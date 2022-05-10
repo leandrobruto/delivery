@@ -27,10 +27,10 @@
         <h4 class="card-title"><?php echo $titulo ?></h4>
 
         <div class="ui-widget">
-          <input id="query" name="query" placeholder="Pesquise por um extra.." class="form-control bg-light mb-5">
+          <input id="query" name="query" placeholder="Pesquise por uma forma de pagamento.." class="form-control bg-light mb-5">
         </div>
 
-        <a href="<?php echo site_url("admin/extras/criar"); ?>" class="btn btn-success btn-sm float-right mb-5">
+        <a href="<?php echo site_url("admin/formas/criar"); ?>" class="btn btn-success btn-sm float-right mb-5">
           <i class="mdi mdi-plus btn-icon-prepend"></i>
           Cadastrar
         </a>
@@ -40,28 +40,26 @@
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>Preço</th>
                 <th>Data de criação</th>
                 <th>Ativo</th>
                 <th>Situação</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($extras as $extra): ?>
+              <?php foreach ($formas as $forma): ?>
                 <tr>
                   <td>
-                    <a href="<?php echo site_url("admin/extras/show/$extra->id"); ?>">
-                      <?php echo $extra->nome; ?>
+                    <a href="<?php echo site_url("admin/formas/show/$forma->id"); ?>">
+                      <?php echo $forma->nome; ?>
                     </a>
                   </td>
-                  <td>R$&nbsp<?php echo esc(number_format($extra->preco, 2)); ?></td>
-                  <td><?php echo $extra->criado_em->humanize(); ?></td>
-                  <td><?php echo ($extra->ativo && $extra->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
+                  <td><?php echo $forma->criado_em->humanize(); ?></td>
+                  <td><?php echo ($forma->ativo && $forma->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
                   <td>
-                    <?php echo ($extra->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
+                    <?php echo ($forma->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
                   
-                    <?php if ($extra->deletado_em != null): ?>
-                      <a href="<?php echo site_url("admin/extras/desfazerexclusao/$extra->id"); ?>" class="badge badge-dark ml-2">
+                    <?php if ($forma->deletado_em != null): ?>
+                      <a href="<?php echo site_url("admin/formas/desfazerexclusao/$forma->id"); ?>" class="badge badge-dark ml-2">
                         <i class="mdi mdi-undo btn-icon-prepend"></i>
                         Desfazer
                       </a>
@@ -95,7 +93,7 @@
       $( "#query" ).autocomplete({
         source: function (request, response) {
           $.ajax({
-            url: "<?php echo site_url('admin/extras/procurar/') ?>",
+            url: "<?php echo site_url('admin/formasPagamento/procurar/') ?>",
             dataType: "json",
             data: {
               term: request.term,
@@ -104,7 +102,7 @@
               if (data.length < 1) {
                 var data = [
                   {
-                    label: 'Extra não encontrada.',
+                    label: 'Forma de pagamento não encontrada.',
                     value: -1
                   }
                 ];
@@ -120,7 +118,7 @@
             $this.val("");
             return false;
           } else {
-            window.location.href = '<?php echo base_url('admin/extras/show'); ?>/' + ui.item.id;
+            window.location.href = '<?php echo base_url('admin/formas/show'); ?>/' + ui.item.id;
           }
         }
       });

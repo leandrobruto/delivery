@@ -28,6 +28,6 @@ class UsuarioSeeder extends Seeder
 
         $usuarioModel->protect(false)->insert($usuario);
 
-        dd($usuarioModel->errors);
+        dd($usuarioModel->errors());
     }
 }

@@ -57,7 +57,7 @@ class Categorias extends BaseController
         return view('Admin/Categorias/criar', $data);
     }
 
-    public function cadastrar($id = null)
+    public function cadastrar()
     {
         if ($this->request->getMethod() === 'post') {
             $categoria = new Categoria($this->request->getPost());

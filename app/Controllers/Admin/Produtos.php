@@ -72,7 +72,7 @@ class Produtos extends BaseController
         return view('Admin/Produtos/criar', $data);
     }
 
-    public function cadastrar($id = null)
+    public function cadastrar()
     {
         if ($this->request->getMethod() === 'post') {
             $produto = new Produto($this->request->getPost());

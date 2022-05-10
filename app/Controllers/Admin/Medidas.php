@@ -57,7 +57,7 @@ class Medidas extends BaseController
         return view('Admin/Medidas/criar', $data);
     }
 
-    public function cadastrar($id = null)
+    public function cadastrar()
     {
         if ($this->request->getMethod() === 'post') {
             $medida = new Medida($this->request->getPost());

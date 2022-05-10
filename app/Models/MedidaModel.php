@@ -26,7 +26,7 @@ class MedidaModel extends Model
     protected $validationMessages = [
         'nome' => [
             'required' => 'O campo Nome é obrigatório.',
-            'is_unique' => 'Esse extra já existe.'
+            'is_unique' => 'Essa medida já existe.'
         ],
     ];
 

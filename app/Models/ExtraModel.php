@@ -26,9 +26,23 @@ class ExtraModel extends Model
     protected $validationMessages = [
         'nome' => [
             'required' => 'O campo Nome é obrigatório.',
-            'is_unique' => 'Esse medida já existe.'
+            'is_unique' => 'Esse extra já existe.'
         ],
     ];
+
+    // Eventos callback
+    protected $beforeInsert = ['criaSlug'];
+    protected $beforeUpdate = ['criaSlug'];
+
+    public function criaSlug (array $data) {
+
+        if (isset($data['data']['nome'])) {
+            $data['data']['slug'] = mb_url_title($data['data']['nome'], '-', TRUE);
+
+        }
+
+        return $data;
+    }
 
     /**
      * @uso Controller extras no método procurar com o autocomplete

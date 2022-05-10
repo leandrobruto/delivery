@@ -6,37 +6,52 @@ use CodeIgniter\Model;
 
 class FormaPagamentoModel extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'formapagamentos';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $table            = 'formas_pagamento';
+    protected $returnType       = 'App\Entities\FormaPagamento';
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['nome', 'ativo'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $createdField  = 'criado_em';
+    protected $updatedField  = 'atualizado_em';
+    protected $deletedField  = 'deletado_em';
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+     // Validation
+     protected $validationRules = [
+        'nome' => 'required|min_length[2]|max_length[120]|is_unique[formas_pagamento.nome]',
+    ];
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    protected $validationMessages = [
+        'nome' => [
+            'required' => 'O campo Nome é obrigatório.',
+            'is_unique' => 'Essa forma de pagamento já existe.'
+        ],
+    ];
+
+    /**
+     * @uso Controller FormasPagamento no método procurar com o autocomplete
+     * @param string $term
+     * @return array objetos
+     */
+    public function procurar ($term) {
+        if ($term === null) {
+            return [];
+        }
+
+        return $this->select('id, nome')
+                    ->like('nome', $term)
+                    ->withDeleted(true)
+                    ->get()
+                    ->getResult();
+    }
+
+    public function desfazerExclusao(int $id) {
+
+        return $this->protect(false)
+                    ->where('id', $id)
+                    ->set('deletado_em', null)
+                    ->update();
+    }
 }
