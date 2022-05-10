@@ -6,37 +6,37 @@ use CodeIgniter\Model;
 
 class ProdutoEspecificacaoModel extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'produtoespecificacaos';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $table            = 'produtos_especificacoes';
+    protected $returnType       = 'object';
+    protected $allowedFields    = ['produto_id', 'medida_id', 'preco', 'customizavel'];
 
-    // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    // Validações
+    protected $validationRules = [
+        'medida_id' => 'required|integer',
+        'preco' => 'required|greater_than[0]',
+        'customizavel' => 'required|integer',
+    ];
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    protected $validationMessages = [
+        'medida_id' => [
+            'required' => 'O campo Medida é obrigatório.',
+        ],
+    ];
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    /**
+     * @descrição: Retorna as especificacoes do produto em questão
+     * @uso Controller Admin/Produtos/especificacoes($id = null)
+     * @param int $produto_id
+     * @param int $quantidade_paginacao
+     * @return array objetos
+     */
+    public function buscaEspecificacoesDoProduto(int $produto_id = null, $quantidade_paginacao) {
+
+        return $this->select('medidas.nome AS medida, produtos_especificacoes.*')
+                    ->join('medidas', 'medidas.id = produtos_especificacoes.medida_id')
+                    ->join('produtos', 'produtos.id = produtos_especificacoes.medida_id')
+                    ->where('produtos_especificacoes.produto_id', $produto_id)
+                    ->paginate($quantidade_paginacao);
+    }
+   
 }

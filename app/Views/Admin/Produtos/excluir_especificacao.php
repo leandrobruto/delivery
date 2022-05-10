@@ -36,10 +36,10 @@
           </ul>
         <?php endif; ?>
 
-        <?php echo form_open("admin/medidas/excluir/$medida->id"); ?>
+        <?php echo form_open("admin/produtos/excluirespecificacao/$especificacao->id/$especificacao->produto_id"); ?>
 
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Atenção!</strong> Tem certeza da exclusão da categoria <strong><?php echo esc($medida->nome) ?>?</strong>
+            <strong>Atenção!</strong> Tem certeza da exclusão da especificação do produto?</strong>
           </div>
 
           <button type="submit" class="btn btn-danger btn-sm mr-2">
@@ -47,7 +47,7 @@
               Excluir
           </button>
 
-          <a href="<?php echo site_url("admin/medidas/show/$medida->id"); ?>" class="btn btn-light text-dark btn-sm">
+          <a href="<?php echo site_url("admin/produtos/especificacoes/$especificacao->produto_id"); ?>" class="btn btn-light text-dark btn-sm">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
             Voltar
           </a>
@@ -65,5 +65,7 @@
 <!-- Aqui enviamos para o template principal os scripts -->
 <?php echo $this->section('scripts'); ?>
 
+  <script src="<?php echo site_url('admin/vendors/mask/jquery.mask.min.js') ?>"></script>
+  <script src="<?php echo site_url('admin/vendors/mask/app.js') ?>"></script>
 
 <?php echo $this->endSection(); ?>

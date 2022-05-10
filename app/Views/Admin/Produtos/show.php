@@ -30,7 +30,7 @@
 
         <div class="text-center">
 
-          <?php if ($produto->imagem): ?>
+          <?php if ($produto->imagem && $produto->deletado_em == null): ?>
             <img class="card-img-top w-75" src="<?php echo site_url("admin/produtos/imagem/$produto->imagem") ?>" alt="<?php echo esc($produto->nome) ?>">
           <?php else: ?>
             <img class="card-img-top w-75" src="<?php echo site_url('admin/images/produto-sem-imagem.jpg') ?>" alt="Produto sem imagem por enquanto..">
@@ -38,14 +38,20 @@
         
         </div>
 
-        <a href="<?php echo site_url("admin/produtos/editarimagem/$produto->id"); ?>" class="btn btn-outline-primary btn-sm mb-2 mt-3">
-          <i class="mdi mdi-image btn-icon-prepend"></i>
-          Editar
-        </a>
-        
-        <hr>
+        <?php if ($produto->deletado_em == null): ?>
 
-        <p class="card-text">
+          <hr>
+
+          <a href="<?php echo site_url("admin/produtos/editarimagem/$produto->id"); ?>" class="btn btn-outline-primary btn-sm mb-2 mt-3">
+            <i class="mdi mdi-image btn-icon-prepend"></i>
+            Editar imagem
+          </a>
+
+          <hr>
+
+        <?php endif; ?>
+
+        <p class="card-text mt-3">
           <span class="font-weight-bold">Nome:</span>
           <?php echo esc($produto->nome); ?>
         </p>
@@ -92,8 +98,13 @@
             </a>
 
             <a href="<?php echo site_url("admin/produtos/extras/$produto->id"); ?>" class="btn btn-outline-success btn-sm mr-2">
-              <i class="mdi mdi-book-open btn-icon-prepend"></i>
+              <i class="mdi mdi-stack-overflow btn-icon-prepend"></i>
               Extras
+            </a>
+
+            <a href="<?php echo site_url("admin/produtos/especificacoes/$produto->id"); ?>" class="btn btn-outline-warning btn-sm mr-2">
+              <i class="mdi mdi-stack-overflow btn-icon-prepend"></i>
+              Especificações
             </a>
 
             <a href="<?php echo site_url("admin/produtos/excluir/$produto->id"); ?>" class="btn btn-danger btn-sm mr-2">

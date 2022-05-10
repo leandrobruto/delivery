@@ -76,8 +76,10 @@
 
           <div class="col-md-8">
             
-            <?php if (empty($produtosExtras)): ?>
+            <?php if (empty($produtoExtras)): ?>
+
               <p>Esse produto não possui extras até o momento.</p>
+
             <?php else: ?>
               <h4 class="card-title">Extras do produto</h4>
               <p class="card-description">
@@ -94,10 +96,10 @@
                   </thead>
                   <tbody>
 
-                    <?php foreach ($produtosExtras as $exxtraProduto): ?>
+                    <?php foreach ($produtoExtras as $exxtraProduto): ?>
                       <tr>
                         <td><?php echo esc($exxtraProduto->extra); ?></td>
-                        <td>R$&nbsp;<?php echo esc(number_format($exxtraProduto->preco, 2, ',', '.')); ?></td>
+                        <td>R$&nbsp;<?php echo esc(number_format($exxtraProduto->preco, 2)); ?></td>
                         <td class="text-center">
                           <?php echo form_open(site_url("admin/produtos/excluirextra/$exxtraProduto->id/$exxtraProduto->produto_id")) ?>
 
@@ -139,7 +141,7 @@
     $(document).ready(function() {
         $('.js-example-basic-single').select2({
 
-          placeholder: 'Digite o nome do extra',
+          placeholder: 'Digite o nome do extra..',
           allowClear: false,
 
           "language": {
