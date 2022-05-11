@@ -8,7 +8,7 @@
 </div>
 
 <div class="form-check form-check-flat form-check-primary mb-4">
-    <label for="is_admin" class="form-check-label">
+    <label for="ativo" class="form-check-label">
         <input type="hidden" name="ativo" value="0" />
         <input type="checkbox" class="form-check-input" name="ativo" id="ativo" value="1" <?php if (old('ativo', $categoria->ativo)): ?> checked="" <?php endif; ?> />
         Ativo

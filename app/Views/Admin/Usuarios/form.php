@@ -6,12 +6,12 @@
     </div>
 
     <div class="form-group col-md-2">
-        <label for="nome">CPF</label>
+        <label for="cpf">CPF</label>
         <input type="text" class="form-control cpf" name="cpf" id="cpf" value="<?php echo old('cpf', esc($usuario->cpf)); ?>">
     </div>
 
     <div class="form-group col-md-3">
-        <label for="nome">Telefone</label>
+        <label for="telefone">Telefone</label>
         <input type="text" class="form-control sp_celphones" name="telefone" id="telefone" value="<?php echo old('telefone', esc($usuario->telefone)); ?>">
     </div>
 
@@ -37,7 +37,7 @@
 </div>
 
 <div class="form-check form-check-flat form-check-primary mb-2">
-    <label for="is_admin" class="form-check-label">
+    <label for="ativo" class="form-check-label">
         <input type="hidden" name="ativo" value="0" />
         <input type="checkbox" class="form-check-input" name="ativo" id="ativo" value="1" <?php if (old('ativo', $usuario->ativo)): ?> checked="" <?php endif; ?> />
         Ativo

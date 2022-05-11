@@ -6,14 +6,14 @@
     </div>
 
     <div class="form-group col-md-12">
-        <label for="nome">Descrição</label>
+        <label for="descricao">Descrição</label>
         <textarea type="text" class="form-control" name="descricao" id="descricao" rows="2" value="<?php echo old('descricao', esc($medida->descricao)); ?>"><?php echo old('descricao', esc($medida->descricao)); ?></textarea>
     </div>
 
 </div>
 
 <div class="form-check form-check-flat form-check-primary mb-4">
-    <label for="is_admin" class="form-check-label">
+    <label for="ativo" class="form-check-label">
         <input type="hidden" name="ativo" value="0" />
         <input type="checkbox" class="form-check-input" name="ativo" id="ativo" value="1" <?php if (old('ativo', $medida->ativo)): ?> checked="" <?php endif; ?> />
         Ativo
