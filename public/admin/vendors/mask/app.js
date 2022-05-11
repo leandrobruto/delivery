@@ -11,11 +11,11 @@ $(function () {
     var SPMaskBehavior = function (val) {
         return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
     },
-            spOptions = {
-                onKeyPress: function (val, e, field, options) {
-                    field.mask(SPMaskBehavior.apply({}, arguments), options);
-                }
-            };
+    spOptions = {
+        onKeyPress: function (val, e, field, options) {
+            field.mask(SPMaskBehavior.apply({}, arguments), options);
+        }
+    };
 
     $('.sp_celphones').mask(SPMaskBehavior, spOptions);
 
@@ -37,11 +37,12 @@ $(function () {
             }
             return myMask;
         },
-                mercoSulOptions = {
-                    onKeyPress: function (val, e, field, options) {
-                        field.mask(MercoSulMaskBehavior.apply({}, arguments), options);
-                    }
-                };
+        mercoSulOptions = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(MercoSulMaskBehavior.apply({}, arguments), options);
+            }
+        };
+
         $(function () {
             $(selector).bind('paste', function (e) {
                 $(this).unmask();

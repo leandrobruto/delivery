@@ -65,8 +65,8 @@
                     <td class="form-group col-md-3">
 
                       <select class="form-control" name="situacao[]" required>
-                        <option value="1">Aberto</option>
-                        <option value="0">Fechado</option>
+                        <option value="1" <?php echo ($dia->situacao == true ? 'selected' : ''); ?>>Aberto</option>
+                        <option value="0" <?php echo ($dia->situacao == false ? 'selected' : ''); ?>>Fechado</option>
                       </select>
 
                     </td>

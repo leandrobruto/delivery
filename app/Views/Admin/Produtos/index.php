@@ -42,6 +42,7 @@
                 <th>Imagem</th>
                 <th>Nome</th>
                 <th>Categoria</th>
+                <th>Especificações</th>
                 <th>Data de criação</th>
                 <th>Ativo</th>
                 <th>Situação</th>
@@ -65,6 +66,15 @@
                     </a>
                   </td>
                   <td><?php echo $produto->categoria; ?></td>
+                  <td>
+                    <?php foreach ($especificacoes as $especificacao): ?>
+                      
+                      <?php if ($produto->id == $especificacoes->produto_id): ?>
+                        <p><?php echo esc($especificacao->nome); ?></p> : R$&nbsp;<?php echo esc($especificacao->preco); ?>
+                      <?php endif; ?>
+
+                    <?php endforeach; ?>
+                  </td>
                   <td><?php echo $produto->criado_em->humanize(); ?></td>
                   <td><?php echo ($produto->ativo && $produto->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
                   <td>
