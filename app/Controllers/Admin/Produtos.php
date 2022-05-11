@@ -182,7 +182,6 @@ class Produtos extends BaseController
             }
         }
 
-
         $tamanhoImagen = $imagem->getSizeByUnit('mb');
 
         if ($tamanhoImagen > 2) {
@@ -421,7 +420,6 @@ class Produtos extends BaseController
 
             if ($produto->imagem) {
                 $caminhoImagem = WRITEPATH . 'uploads/produtos/' . $produto->imagem;
-            
             
                 if (is_file($caminhoImagem)) {
                     unlink($caminhoImagem);

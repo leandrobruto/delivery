@@ -21,7 +21,7 @@
 <?php echo $this->section('conteudo'); ?>
 
 <div class="row">
-  <div class="col-lg-12 grid-margin stretch-card">
+  <div class="col-lg-10 grid-margin stretch-card">
     <div class="card">
       <div class="card-header bg-primary pb-0 pt-4">
         <h4 class="card-title text-white"><?php echo esc($titulo); ?></h4>
@@ -40,7 +40,7 @@
 
           <?php echo $this->include('Admin/Entregadores/form'); ?>
 
-          <a href="<?php echo site_url("admin/entregadores/show/$entregador->id"); ?>" class="btn btn-light text-dark btn-sm">
+          <a href="<?php echo site_url("admin/entregadores/show/$entregador->id"); ?>" class="btn btn-light text-dark btn-sm mt-4">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
             Voltar
           </a>

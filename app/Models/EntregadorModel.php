@@ -37,7 +37,7 @@ class EntregadorModel extends Model
         'telefone' => 'required|exact_length[15]|is_unique[entregadores.telefone]',
         'endereco' => 'required|max_length[230]',
         'veiculo' => 'required|max_length[230]',
-        'placa' => 'required|min_lenght[7]|max_lenght[8]|is_unique[entregadores.placa]',
+        'placa' => 'required|min_length[7]|max_length[8]|is_unique[entregadores.placa]',
     ];
 
     protected $validationMessages = [

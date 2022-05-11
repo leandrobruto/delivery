@@ -51,7 +51,13 @@
               <?php foreach ($entregadores as $entregador): ?>
                 <tr>
                   <td class="py-1">
-                    <img src="<?php echo site_url('admin/'); ?>images/faces/face1.jpg" alt="image"/>
+                    <?php if ($entregador->imagem): ?>
+
+                      <img src="<?php echo site_url("admin/entregadores/imagem/$entregador->imagem"); ?>" alt="<?php echo esc($entregador->nome) ?>"/>
+
+                    <?php else: ?>
+                      <img src="<?php echo site_url('admin/images/entregador-sem-imagem.png'); ?>" alt="Entregador sem imagem"/>
+                    <?php endif; ?>
                   </td>
                   <td>
                     <a href="<?php echo site_url("admin/entregadores/show/$entregador->id"); ?>">

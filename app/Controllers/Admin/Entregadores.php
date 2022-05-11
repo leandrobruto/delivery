@@ -63,7 +63,7 @@ class Entregadores extends BaseController
     {
         if ($this->request->getMethod() === 'post') {
             
-            $entregador = new Usuario($this->request->getPost());
+            $entregador = new Entregador($this->request->getPost());
         
             if ($this->entregadorModel->protect(false)->save($entregador)) {
                 return redirect()->to(site_url("admin/entregadores/show/" . $this->entregadorModel->getInsertID()))
@@ -123,27 +123,122 @@ class Entregadores extends BaseController
             return redirect()->back();
         }
 
-        $post = $this->request->getPost();
-        
-        // if (empty($post['password'])) {
-        //     $this->usuarioModel->desabilitaValidacaoSenha();
-        //     unset($post['password']);
-        //     unset($post['password_confirmation']);
-        // }
-
-        $entregador->fill($post);
+        $entregador->fill($this->request->getPost());
         
         if (!$entregador->hasChanged()) {
             return redirect()->back()->with('info', "Não há dados para atualizar.");
         }
         
-        if ($this->entregadorModel->protect(false)->save($entregador)) {
+        if ($this->entregadorModel->save($entregador)) {
             return redirect()->to(site_url("admin/entregadores/show/$entregador->id"))
                             ->with('sucesso', "Entregador $entregador->nome atualizado com sucesso!");
         } else {
             return redirect()->back()->with('errors_model', $this->entregadorModel->errors())
                                     ->with('atencao', "Por favor, verifique os erros abaixo.")
                                     ->withInput();
+        }
+    }
+
+    public function editarImagem($id = null) 
+    {
+        $entregador = $this->buscaEntregadorOu404($id);
+
+        if ($entregador->deletado_em != null) {
+            return redirect()->back()->with('info', "Não é possível editar a imagem de um entregador excluído.");
+        }
+
+        $data = [
+            'titulo'     => "Editando a imagem do entregador $entregador->nome",
+            'entregador' => $entregador,
+        ];
+
+        return view('Admin/Entregadores/editar_imagem', $data);
+    }
+
+    public function upload($id = null) 
+    {
+        $entregador = $this->buscaEntregadorOu404($id);
+
+        $imagem = $this->request->getFile('foto_entregador');
+
+        if (!$imagem->isValid()) {
+            $codigoError = $imagem->getError();
+
+            if ($codigoError == UPLOAD_ERR_NO_FILE) {
+                return redirect()->back()->with('atencao', 'Nenhum arquivo foi selecionado.');
+            }
+        }
+
+        $tamanhoImagen = $imagem->getSizeByUnit('mb');
+
+        if ($tamanhoImagen > 2) {
+            return redirect()->back()->with('atencao', 'O arquivo selecionado é muito grande. Máximo permitido é: 2MB.');
+        }
+
+        $tipoImagem = $imagem->getMimeType();
+        $tipoImagemLimpo = explode('/', $tipoImagem);
+
+        $tiposPermitidos = [
+            'jpg', 'jpeg', 'png', 'webp',
+        ];
+        
+        if (!in_array($tipoImagemLimpo[1], $tiposPermitidos)) {
+            return redirect()->back()->with('atencao', 'O arquivo não tem o formato permitido. Apenas: ' . implode(', ', $tiposPermitidos));
+        }
+
+        list($largura, $altura) = getimagesize($imagem->getPathName());
+
+        if ($largura < "400" || $altura < "400") {
+            return redirect()->back()->with('atencao', 'A imagem não pode ser menor do que 400 x 400 pixels.');
+        }
+
+        // --------------- A partir desse ponto fazemos o store da imagem. ------------- //
+
+        /* Fazendo o store da imagem e recuperando o caminho da mesma. */
+        $imagemCaminho = $imagem->store('entregadores');
+
+        $imagemCaminho = WRITEPATH . 'uploads/' . $imagemCaminho;
+
+        /* Fazendo o resize da mesma imagem */
+        service('image')
+                ->withFile($imagemCaminho)
+                ->fit(400, 400, 'center')
+                ->save($imagemCaminho);
+
+        /* Recuperando a imagem antiga para excluí-la. */
+        $imagemAntiga = $entregador->imagem;
+
+        /* Atribuindo a nova imagem. */
+        $entregador->imagem = $imagem->getName();
+        
+        /* Atualizando a imagem do produto. */
+        $this->entregadorModel->save($entregador);
+
+        /* Definindo o caminho da imagem antiga. */
+        $caminhoImagem = WRITEPATH . 'uploads/entregadores/' . $imagemAntiga;
+        
+        if (is_file($caminhoImagem)) {
+            unlink($caminhoImagem);
+        }
+
+        return redirect()->to(site_url("admin/Entregadores/show/$entregador->id"))->with('sucesso', 'Imagem alterada com sucesso!');
+    }
+
+    public function imagem(string $imagem = null)
+    {
+        if ($imagem) {
+            $caminhoImagem = WRITEPATH . 'uploads/entregadores/' . $imagem;
+
+            $infoImagem = new \finfo(FILEINFO_MIME);
+
+            $tipoImagem = $infoImagem->file($caminhoImagem);
+            
+            header("Content-Type: $tipoImagem");
+            header("Content-Length: " . filesize($caminhoImagem));
+            
+            readfile($caminhoImagem);
+
+            exit;
         }
     }
 
@@ -155,12 +250,26 @@ class Entregadores extends BaseController
             return redirect()->back()->with('info', "O entregador $entregador->nome já encontra-se excluído!");
         }
 
-        // if ($usuario->is_admin) {
-        //     return redirect()->back()->with('info', "Não é possível excluir um Usuário <b>Administrador</b>.");
-        // }
-
         if ($this->request->getMethod() === 'post') {
+
             $this->entregadorModel->delete($id);
+
+            if ($entregador->imagem) {
+                $caminhoImagem = WRITEPATH . 'uploads/entregadores/' . $entregador->imagem;
+            
+                if (is_file($caminhoImagem)) {
+                    unlink($caminhoImagem);
+                }
+            }
+
+            $entregador->imagem = null;
+            
+            if($entregador->hasChanged()){
+ 
+                $this->entregadorModel->save($entregador);
+ 
+            }
+            
             return redirect()->to(site_url('admin/entregadores'))
                             ->with('sucesso', "Entregador $entregador->nome excluído com sucesso.");
         }
@@ -170,7 +279,7 @@ class Entregadores extends BaseController
             'entregador' => $entregador,
         ];
 
-        return view('Admin/Entregador/excluir', $data);
+        return view('Admin/Entregadores/excluir', $data);
     }
 
     public function desfazerExclusao($id = null)

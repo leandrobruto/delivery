@@ -33,7 +33,7 @@
           <?php if ($entregador->imagem && $entregador->deletado_em == null): ?>
             <img class="card-img-top w-75" src="<?php echo site_url("admin/entregadores/imagem/$entregador->imagem") ?>" alt="<?php echo esc($entregador->nome) ?>">
           <?php else: ?>
-            <img class="card-img-top w-75" src="<?php echo site_url('admin/images/produto-sem-imagem.jpg') ?>" alt="Produto sem imagem por enquanto..">
+            <img class="card-img-top w-75" src="<?php echo site_url('admin/images/entregador-sem-imagem.png') ?>" alt="Produto sem imagem por enquanto..">
           <?php endif; ?>
         
         </div>
@@ -61,7 +61,7 @@
         </p>
         <p class="card-text">
           <span class="font-weight-bold">Veículo:</span>
-          <?php echo ($entregador->veiculo); ?>
+          <?php echo ($entregador->veiculo); ?> | <?php echo ($entregador->placa); ?>
         </p>
         <p class="card-text">
           <span class="font-weight-bold">Ativo:</span>

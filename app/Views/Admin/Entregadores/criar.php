@@ -40,7 +40,7 @@
 
           <?php echo $this->include('Admin/Entregadores/form'); ?>
 
-          <a href="<?php echo site_url("admin/entregadores"); ?>" class="btn btn-light text-dark btn-sm">
+          <a href="<?php echo site_url("admin/entregadores"); ?>" class="btn btn-light text-dark btn-sm mt-4">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
             Voltar
           </a>
