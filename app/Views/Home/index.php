@@ -18,28 +18,10 @@
 <!-- Aqui enviamos para o template principal o conteúdo -->
 <?php echo $this->section('conteudo'); ?>
 
-    <!--    About Us    -->
-    <div class="container section" id="about_us">
-        <div class="col-sm-12 d-flex flex-xs-column">
-            <div class="col-sm-6 d-flex align-items-center padd_lr0" data-aos="fade-up">
-                <div class="content">
-                    <h1 class="section-title title_sty1">about us</h1>
-                    <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-            <div class="col-sm-6 img text-center padd_lr0" data-aos="fade-down">
-                <div class="border_on">
-                    <img src="<?php echo site_url('web/'); ?>src/assets/img/photos/about-us.jpg" alt="sample" class="about_img" />
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!--    Menus   -->
-    <div class="container section" id="menu" data-aos="fade-up">
+    <div class="container section" id="menu" data-aos="fade-up" style="margin-top: 3em">
         <div class="title-block">
-            <h1 class="section-title">Our Menus</h1>
+            <h1 class="section-title">Conheça as nossas delícias</h1>
         </div>
 
         <!--    Menus filter    -->
@@ -460,62 +442,6 @@
 
         </div>
     </div>
-
-    <!--    Reservation    -->
-
-    <div class="fixed_layer section" id="reservation">
-        <div class="fixed_layer_padd container">
-            <div class="row">
-                <div class="col-md-offset-6 col-md-6" data-aos="fade-down">
-                    <div class="reserv_box">
-                        <h1 class="section-title title_sty1">online reservation</h1>
-                        <p class="short">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                        <form id="reserv_form" method="post">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group form_pos">
-                                        <input type="text" name="name" required="" placeholder="Your name" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" />
-                                        <span class="form_icon"></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group form_pos">
-                                        <input type="email" name="email" required="" placeholder="Your email" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email'" />
-                                        <span class="form_icon"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="form-group form_pos">
-                                        <input type="text" name="phone" required="" placeholder="Phone" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" />
-                                        <span class="form_icon"></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group form_pos">
-                                        <input type="text" name="date" required="" placeholder="Date" class="form-control" id="reserv_date" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Date'" />
-                                        <span class="form_icon"></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group form_pos">
-                                        <input type="text" name="time" required="" placeholder="Time" class="form-control" id="reserv_time" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Time'" />
-                                        <span class="form_icon"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea rows="3" name="message" placeholder="Message" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"></textarea>
-                            </div>
-                            <input type="submit" name="send" value="book now" class="btn btn-block" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!--    Gallery    -->
     <div class="container section" id="gallery" data-aos="fade-up">

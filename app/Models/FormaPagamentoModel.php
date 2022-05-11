@@ -20,7 +20,7 @@ class FormaPagamentoModel extends Model
 
      // Validation
      protected $validationRules = [
-        'nome' => 'required|min_length[2]|max_length[120]|is_unique[formas_pagamento.nome]',
+        'nome' => 'required|min_length[2]|max_length[120]|is_unique[formas_pagamento.nome,id,{id}]',
     ];
 
     protected $validationMessages = [

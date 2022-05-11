@@ -72,7 +72,7 @@
 
             <!-- BEGIN carousel -->
             <div id="main-carousel" class="carousel slide" data-ride="carousel">
-                <div class="container pos_rel">
+                <div class="container pos_rel" style="min-height: 1vh !important" >
 
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
