@@ -40,13 +40,14 @@ $routes->group('admin', function ($routes) {
     $routes->add('formas/criar', 'Admin\FormasPagamento::criar');
     $routes->add('formas/show/(:num)', 'Admin\FormasPagamento::show/$1');
     $routes->add('formas/editar/(:num)', 'Admin\FormasPagamento::editar/$1');
+    $routes->add('formas/desfazerexclusao/(:num)', 'Admin\FormasPagamento::desfazerexclusao/$1');
 
     /* Para o POST */
     $routes->post('formas/atualizar/(:num)', 'Admin\FormasPagamento::atualizar/$1');
     $routes->post('formas/cadastrar', 'Admin\FormasPagamento::cadastrar');
 
     $routes->match(['get', 'post'], 'formas/excluir/(:num)', 'Admin\FormasPagamento::excluir/$1');
-    $routes->match(['get', 'post'], 'formas/desfazerexclusao/(:num)', 'Admin\FormasPagamento::desfazerexclusao/$1');
+    $routes->match(['get', 'post'], 'expedientes', 'Admin\Expedientes::expedientes');
 });
 
 /*
