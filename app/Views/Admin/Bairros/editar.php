@@ -21,7 +21,7 @@
 <?php echo $this->section('conteudo'); ?>
 
 <div class="row">
-  <div class="col-lg-6 grid-margin stretch-card">
+  <div class="col-lg-8 grid-margin stretch-card">
     <div class="card">
       <div class="card-header bg-primary pb-0 pt-4">
         <h4 class="card-title text-white"><?php echo esc($titulo); ?></h4>
@@ -36,18 +36,11 @@
           </ul>
         <?php endif; ?>
 
-        <?php echo form_open("admin/formas/excluir/$forma->id"); ?>
+        <?php echo form_open("admin/bairros/atualizar/$bairro->id"); ?>
 
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Atenção!</strong> Tem certeza da exclusão da forma de pagamento <strong><?php echo esc($forma->nome) ?>?</strong>
-          </div>
+          <?php echo $this->include('Admin/Bairros/form'); ?>
 
-          <button type="submit" class="btn btn-danger btn-sm mr-2">
-              <i class="mdi mdi-trash-can btn-icon-prepend"></i>
-              Excluir
-          </button>
-
-          <a href="<?php echo site_url("admin/formas/show/$forma->id"); ?>" class="btn btn-light text-dark btn-sm">
+          <a href="<?php echo site_url("admin/bairros/show/$bairro->id"); ?>" class="btn btn-light text-dark btn-sm">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
             Voltar
           </a>
@@ -65,5 +58,7 @@
 <!-- Aqui enviamos para o template principal os scripts -->
 <?php echo $this->section('scripts'); ?>
 
+  <script src="<?php echo site_url('admin/vendors/mask/jquery.mask.min.js') ?>"></script>
+  <script src="<?php echo site_url('admin/vendors/mask/app.js') ?>"></script>
 
 <?php echo $this->endSection(); ?>

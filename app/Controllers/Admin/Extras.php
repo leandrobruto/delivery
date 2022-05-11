@@ -120,6 +120,8 @@ class Extras extends BaseController
         }
 
         $extra->fill($this->request->getPost());
+
+        $extra->preco = str_replace(",", "", $extra->preco);
         
         if (!$extra->hasChanged()) {
             return redirect()->back()->with('info', "Não há dados para atualizar.");

@@ -39,7 +39,7 @@
         <?php echo form_open("admin/extras/excluir/$extra->id"); ?>
 
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Atenção!</strong> Tem certeza da exclusão da categoria <strong><?php echo esc($extra->nome) ?>?</strong>
+            <strong>Atenção!</strong> Tem certeza da exclusão do extra <strong><?php echo esc($extra->nome) ?>?</strong>
           </div>
 
           <button type="submit" class="btn btn-danger btn-sm mr-2">

@@ -36,10 +36,10 @@
           </ul>
         <?php endif; ?>
 
-        <?php echo form_open("admin/formas/excluir/$forma->id"); ?>
+        <?php echo form_open("admin/bairros/excluir/$bairro->id"); ?>
 
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Atenção!</strong> Tem certeza da exclusão da forma de pagamento <strong><?php echo esc($forma->nome) ?>?</strong>
+            <strong>Atenção!</strong> Tem certeza da bairro da categoria <strong><?php echo esc($bairro->nome) ?>?</strong>
           </div>
 
           <button type="submit" class="btn btn-danger btn-sm mr-2">
@@ -47,7 +47,7 @@
               Excluir
           </button>
 
-          <a href="<?php echo site_url("admin/formas/show/$forma->id"); ?>" class="btn btn-light text-dark btn-sm">
+          <a href="<?php echo site_url("admin/bairros/show/$bairro->id"); ?>" class="btn btn-light text-dark btn-sm">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
             Voltar
           </a>

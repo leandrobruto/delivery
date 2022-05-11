@@ -27,10 +27,10 @@
         <h4 class="card-title"><?php echo $titulo ?></h4>
 
         <div class="ui-widget">
-          <input id="query" name="query" placeholder="Pesquise por um extra.." class="form-control bg-light mb-5">
+          <input id="query" name="query" placeholder="Pesquise por um bairro.." class="form-control bg-light mb-5">
         </div>
 
-        <a href="<?php echo site_url("admin/extras/criar"); ?>" class="btn btn-success btn-sm float-right mb-5">
+        <a href="<?php echo site_url("admin/bairros/criar"); ?>" class="btn btn-success btn-sm float-right mb-5">
           <i class="mdi mdi-plus btn-icon-prepend"></i>
           Cadastrar
         </a>
@@ -40,28 +40,28 @@
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>Preço</th>
+                <th>Valor de entrega</th>
                 <th>Data de criação</th>
                 <th>Ativo</th>
                 <th>Situação</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($extras as $extra): ?>
+              <?php foreach ($bairros as $bairro): ?>
                 <tr>
                   <td>
-                    <a href="<?php echo site_url("admin/extras/show/$extra->id"); ?>">
-                      <?php echo esc($extra->nome); ?>
+                    <a href="<?php echo site_url("admin/bairros/show/$bairro->id"); ?>">
+                      <?php echo $bairro->nome; ?>
                     </a>
                   </td>
-                  <td>R$&nbsp<?php echo esc(number_format($extra->preco, 2)); ?></td>
-                  <td><?php echo $extra->criado_em->humanize(); ?></td>
-                  <td><?php echo ($extra->ativo && $extra->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
+                  <td>R$&nbsp<?php echo esc(number_format($bairro->valor_entrega, 2)); ?></td>
+                  <td><?php echo $bairro->criado_em->humanize(); ?></td>
+                  <td><?php echo ($bairro->ativo && $bairro->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
                   <td>
-                    <?php echo ($extra->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
+                    <?php echo ($bairro->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
                   
-                    <?php if ($extra->deletado_em != null): ?>
-                      <a href="<?php echo site_url("admin/extras/desfazerexclusao/$extra->id"); ?>" class="badge badge-dark ml-2">
+                    <?php if ($bairro->deletado_em != null): ?>
+                      <a href="<?php echo site_url("admin/bairros/desfazerexclusao/$bairro->id"); ?>" class="badge badge-dark ml-2">
                         <i class="mdi mdi-undo btn-icon-prepend"></i>
                         Desfazer
                       </a>
@@ -76,7 +76,7 @@
           <div class="mt-3">
             <?php echo $pager->links(); ?>
           </div>
-
+          
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
       $( "#query" ).autocomplete({
         source: function (request, response) {
           $.ajax({
-            url: "<?php echo site_url('admin/extras/procurar/') ?>",
+            url: "<?php echo site_url('admin/bairros/procurar/') ?>",
             dataType: "json",
             data: {
               term: request.term,
@@ -105,7 +105,7 @@
               if (data.length < 1) {
                 var data = [
                   {
-                    label: 'Extra não encontrada.',
+                    label: 'Bairro não encontrado.',
                     value: -1
                   }
                 ];
@@ -121,7 +121,7 @@
             $this.val("");
             return false;
           } else {
-            window.location.href = '<?php echo base_url('admin/extras/show'); ?>/' + ui.item.id;
+            window.location.href = '<?php echo base_url('admin/bairros/show'); ?>/' + ui.item.id;
           }
         }
       });

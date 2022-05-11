@@ -39,7 +39,7 @@
         <?php echo form_open("admin/medidas/excluir/$medida->id"); ?>
 
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Atenção!</strong> Tem certeza da exclusão da categoria <strong><?php echo esc($medida->nome) ?>?</strong>
+            <strong>Atenção!</strong> Tem certeza da exclusão da medida <strong><?php echo esc($medida->nome) ?>?</strong>
           </div>
 
           <button type="submit" class="btn btn-danger btn-sm mr-2">
