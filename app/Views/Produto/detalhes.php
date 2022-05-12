@@ -24,6 +24,7 @@
     <div class="product-content product-wrap clearfix product-deatil">
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">
+                
                 <div class="product-image">
                 
                     <img src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
@@ -34,10 +35,13 @@
             <?php echo form_open('adicionar/carrinho'); ?>
 
                 <div class="col-md-7 col-md-offset-1 col-sm-12 col-xs-12">
+
                     <h2 class="name">
                         <?php echo esc($produto->nome); ?>
                     </h2>
+
                     <hr />
+                    
                     <h3 class="price-container">
 
                         <p class="small">Escolha o valor</p>
@@ -88,6 +92,19 @@
                         <?php endif; ?>
 
                     </h3>
+
+                    <hr>
+
+                    <div class="row" style="margin-top: 2rem">
+
+                        <div class="div col-md-4">
+
+                            <label>Quantidade</label>
+                            <input type="number" class="form-control" name="produto[quantidade]" placeholder="Quantidade.." value="1" min="1" max="10" step="1"required />
+
+                        </div>
+
+                    </div>
                     
                     <hr />
                     
@@ -115,12 +132,28 @@
                     </div>
 
                     <div class="row">
+
                         <div class="col-sm-4">
-                            <input id="btn-adiciona" type="submit" class="btn btn-success btn-lg" value="Adicionar ao carrinho" placeholder="produto[extra_id]" name="produto[extra_id]" />
+                            <input id="btn-adiciona" type="submit" class="btn btn-success btn-block" value="Adicionar ao carrinho" placeholder="produto[extra_id]" name="produto[extra_id]" />
                         </div>
+
+                        <?php foreach ($especificacoes as $especificacao): ?>
+
+                            <?php if ($especificacao->customizavel): ?>
+                                <div class="col-sm-4">
+                                    <a href="<?php echo site_url("produto/customizar/$produto->slug"); ?>" class="btn btn-primary btn-block">Customizar</a>
+                                </div>
+                            
+                                <?php break; ?>
+
+                            <?php endif; ?>
+
+                        <?php endforeach; ?>
+
                         <div class="col-sm-4">
-                            <a href="<?php echo site_url('/'); ?>" class="btn btn-info btn-lg">Mais delícias</a>
+                            <a href="<?php echo site_url('/'); ?>" class="btn btn-info btn-block">Mais delícias</a>
                         </div>
+
                     </div>
                 </div>
 
