@@ -55,7 +55,11 @@
                             <div class="content">
                                 <div class="filter_item_img">
                                     <i class="fa fa-search-plus"></i>
-                                    <img src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
+                                    <?php if ($produto->imagem && $produto->deletedo_em == null): ?>
+                                        <img class="card-img-top w-75" src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
+                                    <?php else: ?>
+                                        <img class="card-img-top w-75" src="<?php echo site_url("admin/images/produto-sem-imagem.jpg"); ?>" alt="<?php echo esc($produto->nome); ?>" /> 
+                                    <?php endif; ?>
                                 </div>
                                 <div class="info">
                                     <div class="name"><?php echo esc($produto->nome); ?></div>

@@ -191,9 +191,9 @@ class Produtos extends BaseController
 
         $tipoImagem = $imagem->getMimeType();
         $tipoImagemLimpo = explode('/', $tipoImagem);
-
+        
         $tiposPermitidos = [
-            'jpg', 'png', 'webp',
+            'jpg', 'jpeg', 'png', 'webp',
         ];
         
         if (!in_array($tipoImagemLimpo[1], $tiposPermitidos)) {

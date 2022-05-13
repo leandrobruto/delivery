@@ -24,11 +24,12 @@
     <div class="product-content product-wrap clearfix product-deatil">
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">
-                
                 <div class="product-image">
-                
-                    <img src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
-                
+                    <?php if ($produto->imagem && $produto->deletedo_em == null): ?>
+                        <img class="card-img-top w-75" src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
+                    <?php else: ?>
+                        <img class="card-img-top w-75" src="<?php echo site_url("admin/images/produto-sem-imagem.jpg"); ?>" alt="<?php echo esc($produto->nome); ?>" /> 
+                    <?php endif; ?>
                 </div>
             </div>
 
