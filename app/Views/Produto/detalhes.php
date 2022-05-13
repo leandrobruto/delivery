@@ -32,7 +32,15 @@
                 </div>
             </div>
 
-            <?php echo form_open('adicionar/carrinho'); ?>
+            <?php if (session()->has('errors_model')): ?>
+                <ul>
+                    <?php foreach (session('errors_model') as $error): ?>
+                        <li class="text-danger"><?php echo $error ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+                
+            <?php echo form_open('carrinho/adicionar'); ?>
 
                 <div class="col-md-7 col-md-offset-1 col-sm-12 col-xs-12">
 
@@ -134,7 +142,7 @@
                     <div class="row">
 
                         <div class="col-sm-4">
-                            <input id="btn-adiciona" type="submit" class="btn btn-success btn-block" value="Adicionar ao carrinho" placeholder="produto[extra_id]" name="produto[extra_id]" />
+                            <input id="btn-adiciona" type="submit" class="btn btn-success btn-block" value="Adicionar"/>
                         </div>
 
                         <?php foreach ($especificacoes as $especificacao): ?>
@@ -193,7 +201,7 @@
             $("#especificacao_id").val(especificacao_id);
 
             $('#btn-adiciona').prop('disabled', false);
-            $('#btn-adiciona').prop('value', 'Adicionar ao carrinho');
+            $('#btn-adiciona').prop('value', 'Adicionar');
 
         });
 
