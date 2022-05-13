@@ -34,7 +34,7 @@
             </div>
 
             <?php if (session()->has('errors_model')): ?>
-                <ul>
+                <ul style="list-style: decimal">
                     <?php foreach (session('errors_model') as $error): ?>
                         <li class="text-danger"><?php echo $error ?></li>
                     <?php endforeach; ?>

@@ -62,9 +62,9 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="info">
-                                    <div class="name"><?php echo esc($produto->nome); ?></div>
+                                    <div class="name"><?php echo esc($produto->nome); previous_url() ?></div>
                                     <div class="short"><?php echo word_limiter($produto->ingredientes, 5); ?></div>
-                                    <span class="filter_item_price">A partir de  R$&nbsp;<?php echo esc(number_format($produto->preco)); ?></span>
+                                    <span class="filter_item_price">A partir de  R$&nbsp;<?php echo esc(number_format($produto->preco , 2)); ?></span>
                                 </div>
                             </div>
                         </a>
