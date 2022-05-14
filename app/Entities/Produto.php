@@ -11,4 +11,52 @@ class Produto extends Entity
         'atualizado_em', 
         'deletado_em'
     ];
+
+    public function combinaExtrasDosProdutos(array $extrasPrimeiroProduto, array $extrasSegundoProduto) {
+
+        $extrasUnicos = [];
+
+        $extrasCombinados = array_merge($extrasPrimeiroProduto, $extrasSegundoProduto);
+
+        foreach ($extrasCombinados as $extra) {
+
+            $extraExiste = (bool) in_array($extra->id, array_column($extrasUnicos, 'id'));
+
+            if ($extraExiste == false) {
+                array_push($extrasUnicos, [
+                    'id' => $extra->id,
+                    'nome' => $extra->nome,
+                    'preco' => $extra->preco,
+                ]);
+            }
+
+        }
+
+        return $extrasUnicos;
+    }
+
+    public function recuperaMedidasEmComum(array $especificacoesPrimeroProduto, array $especificacoesSegundoProduto) {
+
+        $primeroArrayMedidas = [];
+
+        foreach ($especificacoesPrimeroProduto as $especificacao) {
+
+            if ($especificacao->customizavel) {
+                array_push($primeroArrayMedidas, $especificacao->medida_id);
+            }
+
+        }
+
+        $segundoArrayMedidas = [];
+
+        foreach ($especificacoesSegundoProduto as $especificacao) {
+
+            if ($especificacao->customizavel) {
+                array_push($segundoArrayMedidas, $especificacao->medida_id);
+            }
+
+        }
+
+        return array_intersect($primeroArrayMedidas, $segundoArrayMedidas);
+    }
 }

@@ -37,6 +37,12 @@ class ProdutoExtraModel extends Model
                     ->paginate($quantidade_paginacao);
     }
 
+    /**
+     * @descrição: Recupera os extras do produto em questão
+     * @uso Controller Produto/detalhes e Produto/exibeTamanhos
+     * @param int $produto_id
+     * @return array objetos
+     */
     public function buscaExtrasDoProdutoDetalhes(int $produto_id = null) {
 
         return $this->select('extras.id, extras.nome, extras.preco, produtos_extras.id AS id_principal')

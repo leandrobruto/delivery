@@ -204,7 +204,7 @@
 
                         <div class="navbar_top hidden-xs">
                             <div class="top_addr">
-                                <span><i class="fa fa-map-marker" aria-hidden="true"></i> Your country, your city, 12345</span>
+                                <span><i class="fa fa-map-marker" aria-hidden="true"></i> Brasil, Juazeiro do Norte, 63050-460</span>
                                 <span><i class="fa fa-phone" aria-hidden="true"></i> 123 456 789</span>
                                 <span><i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 - 21:00</span>
                                 <div class="pull-right search-block">
@@ -460,7 +460,7 @@
             <li><a class="page-scroll" href="#footer">Contact</a></li>
         </ul>
         <div class="right_menu_addr top_addr">
-            <span><i class="fa fa-map-marker" aria-hidden="true"></i> Your country, your city, 12345</span>
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i> Brasil, Juazeiro do Norte, 63050-460</span>
             <span><i class="fa fa-phone" aria-hidden="true"></i> 123 456 789</span>
             <span><i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 - 21:00</span>
         </div>

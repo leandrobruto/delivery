@@ -152,7 +152,7 @@
                   <i class="mdi mdi-settings text-primary"></i>
                   Settings
                 </a>
-                <a class="dropdown-item">
+                <a href="<?php echo site_url('login/logout'); ?>" class="dropdown-item">
                   <i class="mdi mdi-logout text-primary"></i>
                   Logout
                 </a>
