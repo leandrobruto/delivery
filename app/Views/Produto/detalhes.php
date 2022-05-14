@@ -19,7 +19,7 @@
 <!-- Aqui enviamos para o template principal o conteúdo -->
 <?php echo $this->section('conteudo'); ?>
 
-<div class="container">
+<div class="container section" id="menu" data-aos="fade-up" style="margin-top: 3em">
     <!-- product -->
     <div class="product-content product-wrap clearfix product-deatil">
         <div class="row">
@@ -32,18 +32,18 @@
                     <?php endif; ?>
                 </div>
             </div>
-
-            <?php if (session()->has('errors_model')): ?>
-                <ul style="list-style: decimal">
-                    <?php foreach (session('errors_model') as $error): ?>
-                        <li class="text-danger"><?php echo $error ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php endif; ?>
                 
             <?php echo form_open('carrinho/adicionar'); ?>
 
-                <div class="col-md-7 col-md-offset-1 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+
+                    <?php if (session()->has('errors_model')): ?>
+                        <ul style="list-style: decimal">
+                            <?php foreach (session('errors_model') as $error): ?>
+                                <li class="text-danger"><?php echo $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
 
                     <h2 class="name">
                         <?php echo esc($produto->nome); ?>
@@ -89,7 +89,7 @@
                                 <div class="radio">
                                 
                                     <label style="font-size: 16px">
-                                        <input type="radio" style="margin-top: 2px" class="extra" data-extra="<?php echo esc($extra->id_principal); ?>" 
+                                        <input type="radio" style="margin-top: 2px" class="extra" data-extra="<?php echo esc($extra->id); ?>" 
                                             name="extra" value="<?php echo esc(number_format($extra->preco, 2)); ?>">
                                                 <?php echo esc($extra->nome); ?>
                                                 R$&nbsp;<?php echo esc(number_format($extra->preco, 2)); ?>
@@ -104,7 +104,7 @@
 
                     <hr>
 
-                    <div class="row" style="margin-top: 2rem">
+                    <div class="row" style="margin-top: 3rem">
 
                         <div class="div col-md-4">
 
@@ -134,9 +134,9 @@
                     <div>
                         
                         <!-- Campos hidden que usaremos no controller -->
-                        <input type="text" name="produto[slug]" placeholder="produto[slug]" value="<?php echo $produto->slug; ?>" />
-                        <input type="text" id="especificacao_id" placeholder="produto[especificacao_id]" name="produto[especificacao_id]" />
-                        <input type="text" id="extra_id" placeholder="produto[extra_id]" name="produto[extra_id]" />
+                        <input type="hidden" name="produto[slug]" placeholder="produto[slug]" value="<?php echo $produto->slug; ?>" />
+                        <input type="hidden" id="especificacao_id" placeholder="produto[especificacao_id]" name="produto[especificacao_id]" />
+                        <input type="hidden" id="extra_id" placeholder="produto[extra_id]" name="produto[extra_id]" />
                         
                     </div>
 
