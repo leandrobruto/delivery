@@ -54,4 +54,18 @@ class MedidaModel extends Model
                     ->set('deletado_em', null)
                     ->update();
     }
+
+    /**
+     * @uso Controller Produto/exibeValor
+     * @param int $medida_id
+     * @return objeto contendo o maior valor
+     */
+    public function exibeValor(int $medida_id) {
+
+        return $this->selectMax('produtos_especificacoes.preco') // Buscamos o maior valor entre os dois produtos customizados
+                    ->join('produtos_especificacoes', 'produtos_especificacoes.medida_id = medidas.id')
+                    ->where('medidas.id', $medida_id)
+                    ->where('medidas.ativo', true)
+                    ->first();
+    }
 }
