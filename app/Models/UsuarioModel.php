@@ -9,7 +9,7 @@ class UsuarioModel extends Model
 {
     protected $table            = 'usuarios';
     protected $returnType       = 'App\Entities\Usuario';
-    protected $allowedFields    = ['nome', 'cpf', 'telefone', 'email', 'password', 'reset_hash', 'reset_expira_em'];
+    protected $allowedFields    = ['nome', 'cpf', 'telefone', 'email', 'password', 'reset_hash', 'reset_expira_em', 'ativacao_hash'];
     // Datas
     protected $useTimestamps    = true;
     protected $createdField     = 'criado_em';
@@ -85,6 +85,10 @@ class UsuarioModel extends Model
         unset($this->validationRules['password_confirmation']);
     }
 
+    public function desabilitaValidacaoTelefone () {
+        unset($this->validationRules['telefone']);
+    }
+
     public function desfazerExclusao(int $id) {
 
         return $this->protect(false)
@@ -104,7 +108,7 @@ class UsuarioModel extends Model
 
     }
 
-    public function buscaUsuarioParaResetarSenha($token) {
+    public function buscaUsuarioParaResetarSenha(string $token) {
 
         $token = new Token($token);
 
@@ -126,6 +130,22 @@ class UsuarioModel extends Model
             }
 
             return $usuario;
+        }
+    }
+
+    public function ativarContaPeloToken(string $token) {
+
+        $token = new Token($token);
+
+        $tokenHash = $token->getHash();
+
+        $usuario = $this->where('ativacao_hash', $tokenHash)->first();
+
+        if ($usuario != null) {
+            
+            $usuario->ativar();
+
+            $this->protect(false)->save($usuario);
         }
     }
 }
