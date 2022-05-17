@@ -15,7 +15,6 @@
 
 <?php echo $this->endSection(); ?>
 
-
 <!-- Aqui enviamos para o template principal o conteúdo -->
 <?php echo $this->section('conteudo'); ?>
 

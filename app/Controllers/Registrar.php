@@ -73,7 +73,7 @@ class Registrar extends BaseController
 
         $email = \Config\Services::email();
 
-        $email->setFrom('no-reply@delivery.com.br', 'Delivery');
+        $email->setFrom('no-reply@delivery.com.br', 'Food Delivery');
         $email->setTo($usuario->email);
 
         $email->setSubject('Ativação de conta.');

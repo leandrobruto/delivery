@@ -114,7 +114,7 @@ class Password extends BaseController
 
         $email = \Config\Services::email();
 
-        $email->setFrom('no-reply@delivery.com.br', 'Delivery');
+        $email->setFrom('no-reply@delivery.com.br', 'Food Delivery');
         $email->setTo($usuario->email);
 
         $email->setSubject('Redefinição de senha.');

@@ -86,4 +86,4 @@
 <?php echo $this->section('scripts'); ?>
 
 
-<?php echo $this->endSection(); ?><!-- Begin Sections-->
+<?php echo $this->endSection(); ?>

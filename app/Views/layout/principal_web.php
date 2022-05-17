@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Delivery | <?php echo $this->renderSection('titulo'); ?></title>
+    <title>Food Delivery | <?php echo $this->renderSection('titulo'); ?></title>
 
     <!-- Stylesheets -->
     <link href="<?php echo site_url('web/');; ?>src/assets/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all" />
@@ -272,6 +272,15 @@
                                                 </li>
 
                                             <?php endif; ?>
+
+                                            <?php if (usuarioLogado()): ?>
+                                                <li><a class="page-scroll" href="<?php echo site_url('conta'); ?>">Minha conta</a></li>
+                                                <li><a class="page-scroll" href="<?php echo site_url('login/logout'); ?>">Sair</a></li>
+                                            <?php else: ?>
+                                                <li><a class="page-scroll" href="<?php echo site_url('login'); ?>">Entrar</a></li>
+                                                <li><a class="page-scroll" href="<?php echo site_url('register'); ?>">Registrar-se</a></li>
+                                            <?php endif; ?>
+
                                         </ul>
                                     </div>
                                 </div>

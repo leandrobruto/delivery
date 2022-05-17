@@ -9,7 +9,7 @@ class Testes extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Curdo de app food delivery',
+            'title' => 'Curso de app Food Delivery',
             'subTitle' => 'CodeIgniter4'
         ];
 
