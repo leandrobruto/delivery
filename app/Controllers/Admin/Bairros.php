@@ -163,8 +163,8 @@ class Bairros extends BaseController
         helper('consulta_cep');
 
         $consulta = consultaCep($cep);
-
-        if (isset($consulta->error) && !isset($consulta->cep)) {
+        
+        if (isset($consulta->erro) && !isset($consulta->cep)) {
             $retono['erro'] = '<span class="text-danger small"> CEP inválido!   </span>';
 
             return $this->response->setJSON($retono);

@@ -34,7 +34,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-12" style="margin-bottom: 2em">
+                        <div class="col-md-12" style="margin-top: 1em; bottom: 2em">
 
                             <?php if (session()->has('errors_model')): ?>
                                 <ul style="list-style: decimal">
@@ -305,8 +305,8 @@
 
                             $(data.extras).each(function () {
                                 
-                                var input = "<div class='radio'><label><input type='radio' class='extra' name='extra' data-extra='" + this.id + "' value='" + this.preco + "'></label>" + this.nome + "</div>"; 
-
+                                var input = "<div class='radio'><label><input type='radio' class='extra' name='extra' data-extra='" + this.id + "' value='" + this.preco + "'>" + this.nome + ' - R$ ' + this.preco + "</label></div>"; 
+                                                                
                                 $("#extras").append(input);
                             });
 
@@ -370,7 +370,7 @@
                     },
                     success: function (data) {
                         
-                        if (data) {
+                        if (data.preco) {
                             $("#valor_produto_customizado").html('R$ ' + data.preco);
 
                             $('#btn-adiciona').prop('disabled', false);

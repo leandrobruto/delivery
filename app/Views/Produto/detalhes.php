@@ -38,7 +38,7 @@
                 <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
 
                     <?php if (session()->has('errors_model')): ?>
-                        <ul style="list-style: decimal">
+                        <ul style="margin-left: -1.5em; list-style: decimal">
                             <?php foreach (session('errors_model') as $error): ?>
                                 <li class="text-danger"><?php echo $error ?></li>
                             <?php endforeach; ?>

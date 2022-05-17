@@ -14,9 +14,9 @@ if (!function_exists('consultaCep')) {
 
         /* Executamos o POST */
         $json = curl_exec($ch);
-
+        
         /* Decodificando o objeto JSON */
-        $resultado = json_decode($json, true);
+        $resultado = json_decode($json);
 
         /* Fechamos a conexão */
         return $resultado;

@@ -28,7 +28,7 @@ class Produto extends BaseController
     public function detalhes($produto_slug = null)
     {
         if (!$produto_slug || !$produto = $this->produtoModel->where('slug', $produto_slug)->where('ativo', true)->first()) {
-            return redirect()->to(site_url('/'));
+            return redirect()->back();
         }
 
         $data = [
@@ -163,7 +163,7 @@ class Produto extends BaseController
 
         $medida= $this->medidaModel->exibeValor($get['medida_id']);
 
-        if ($medida == null) {
+        if ($medida->preco == null) {
             return $this->response->setJSON([]);
         }
 
