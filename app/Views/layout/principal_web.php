@@ -278,7 +278,7 @@
                                                 <li><a class="page-scroll" href="<?php echo site_url('login/logout'); ?>">Sair</a></li>
                                             <?php else: ?>
                                                 <li><a class="page-scroll" href="<?php echo site_url('login'); ?>">Entrar</a></li>
-                                                <li><a class="page-scroll" href="<?php echo site_url('register'); ?>">Registrar-se</a></li>
+                                                <li><a class="page-scroll" href="<?php echo site_url('registrar'); ?>">Registrar-se</a></li>
                                             <?php endif; ?>
 
                                         </ul>

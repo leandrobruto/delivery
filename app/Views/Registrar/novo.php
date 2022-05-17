@@ -26,7 +26,7 @@
            
             <div class="col-md-12">
 
-                <p><?php echo $titulo; ?></p>
+                <h4 class="text-center"><?php echo $titulo; ?></h4>
 
                 <?php if (session()->has('errors_model')): ?>
                     <ul style="margin-left: -1.5em; list-style: decimal">

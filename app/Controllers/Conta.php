@@ -8,8 +8,12 @@ class Conta extends BaseController
 {
     private $usuario;
 
+    private $usuarioModel;
+
     public function __construct() {
         $this->usuario = service('autenticacao')->pegaUsuarioLogado();
+
+        $this->usuarioModel = new \App\Models\UsuarioModel();
     }
 
     public function index()
@@ -77,8 +81,55 @@ class Conta extends BaseController
     {
         if ($this->request->getMethod() === 'post') {
 
-           $this->usuario->fill($this->request->getPost()); 
+           $this->usuario->fill($this->request->getPost());
 
+           if (!$this->usuario->hasChanged()) {
+                return redirect()->back()->with('info', "Não há dados para atualizar.");
+           }
+
+           if ($this->usuarioModel->save($this->usuario)) {
+            return redirect()->to(site_url("conta/show"))
+                            ->with('sucesso', "Seus dados foram atualizados com sucesso!");
+            } else {
+                return redirect()->back()->with('errors_model', $this->usuarioModel->errors())
+                                        ->with('atencao', "Por favor, verifique os erros abaixo.")
+                                        ->withInput();
+            }
+
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function editarSenha()
+    {
+        $data = [
+            'titulo'     => "Altera senha de acesso",
+            'usuario' => $this->usuario,
+        ];
+
+        return view('Conta/editar_senha', $data);
+    }
+
+    public function atualizarSenha()
+    {
+        if ($this->request->getMethod() === 'post') {
+ 
+            if (!$this->usuario->verificaPassword($this->request->getPost('current_password'))) {
+                return redirect()->back()->with('atencao', "Senha inválida.");
+           }
+
+           $this->usuario->fill($this->request->getPost());
+ 
+            if ($this->usuarioModel->save($this->usuario)) {
+             return redirect()->to(site_url("conta/show"))
+                             ->with('sucesso', "Senha atualizada com sucesso!");
+             } else {
+                 return redirect()->back()->with('errors_model', $this->usuarioModel->errors())
+                                         ->with('atencao', "Por favor, verifique os erros abaixo.")
+                                         ->withInput();
+             }
+ 
         } else {
             return redirect()->back();
         }

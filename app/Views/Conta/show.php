@@ -53,7 +53,7 @@
                 </div>
                 <div class="panel-footer">
                     <a href="<?php echo site_url('conta/editar'); ?>" class="btn btn-primary">Editar</a>
-                    <a href="<?php echo site_url('conta/alterarsenha'); ?>" class="btn btn-danger">Alterar senha</a>
+                    <a href="<?php echo site_url('conta/editarsenha'); ?>" class="btn btn-danger">Alterar senha</a>
                 </div>
             </div>
         </div>

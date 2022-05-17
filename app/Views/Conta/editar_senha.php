@@ -41,28 +41,23 @@
                 </ul>
             <?php endif; ?>
 
-            <?php echo form_open('conta/atualizar'); ?>
+            <?php echo form_open('conta/atualizarsenha'); ?>
                 <div class="panel panel-info">
                     <div class="panel-body">
                     
                         <div>
-                            <label>Nome completo</label>
-                            <input type="text" class="form-control" name="nome" value="<?php echo old('nome', esc($usuario->nome)); ?>">
+                            <label>Senha atual</label>
+                            <input type="password" class="form-control" name="current_password">
                         </div>
                         <hr>
                         <div>
-                            <label>E-mail de acesso</label>
-                            <input type="email" class="form-control" name="email" value="<?php echo old('email', esc($usuario->email)); ?>">
+                            <label>Nova senha</label>
+                            <input type="password" class="form-control" name="password">
                         </div>
                         <hr>
                         <div>
-                            <label>Telefone</label>
-                            <input type="tel" class="form-control sp_celphones" name="telefone" value="<?php echo old('telefone', esc($usuario->telefone)); ?>">
-                        </div>
-                        <hr>
-                        <div>
-                            <label>CPF <i class="fa fa-lock text-warning"></i></label>
-                            <div class="well well-sm"><?php echo esc($usuario->cpf); ?></div>
+                            <label>Confirme a nova senha</label>
+                            <input type="password" class="form-control" name="password_confirmation">
                         </div>
                     
                     </div>
