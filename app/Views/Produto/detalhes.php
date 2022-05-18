@@ -62,7 +62,7 @@
                                 <div class="radio">
                                 
                                     <label style="font-size: 16px">
-                                        <input type="radio" style="margin-top: 2px" style="margin-top: 2px" class="especificacao" data-especificacao="<?php echo esc($especificacao->especificacao_id); ?>" 
+                                        <input type="radio" style="margin-top: 2px" class="especificacao" data-especificacao="<?php echo esc($especificacao->especificacao_id); ?>" 
                                             name="produto[preco]" value="<?php echo esc(number_format($especificacao->preco, 2)); ?>">
                                                 <?php echo esc($especificacao->nome); ?>
                                                 R$&nbsp;<?php echo esc(number_format($especificacao->preco, 2)); ?>

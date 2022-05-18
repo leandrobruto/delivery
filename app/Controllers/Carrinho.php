@@ -405,7 +405,7 @@ class Carrinho extends BaseController
         $retono = [];
 
         if (!$this->validacao->withRequest($this->request)->run()) {
-            $retono['erro'] = '<span class="text-danger small">' . $validacao->getError() . '</span>';
+            $retono['erro'] = '<span class="text-danger small">' . $this->validacao->getError() . '</span>';
 
             return $this->response->setJSON($retono);
         }
