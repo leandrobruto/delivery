@@ -32,7 +32,7 @@
         
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-6">
 
                     <ul class="list-group">
                         
@@ -80,11 +80,19 @@
                     <a href="<?php echo site_url('/'); ?>" class="btn btn-food btn-sm">Quero mais delícias</a>
                     <a href="<?php echo site_url('carrinho'); ?>" class="btn btn-primary btn-sm" style="font-family: 'Montserrat-Bold';">Ver meu carrinho</a>    
 
-                </div> <!-- Fim col-md-7 -->
+                </div> <!-- Fim col-md-6 -->
 
-                <div class="col-md-5">
+                <div class="col-md-6">
 
                     <?php echo form_open('checkout/processar', ['class' => 'form-checkout']); ?>
+
+                        <?php if (session()->has('errors_model')): ?>
+                            <ul style="list-style: decimal; margin-left: -1.5em;">
+                                <?php foreach (session('errors_model') as $error): ?>
+                                    <li class="text-danger"><?php echo $error ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
 
                         <p style="font-size: 16px; font-weight: bold;">Escolha a forma de pagamento na entrega</p>
 
@@ -95,7 +103,7 @@
                                 <div class="radio">
                                 
                                     <label style="font-size: 16px">
-                                        <input id="forma" type="radio" name="forma" style="margin-top: 2px" class="forma" data-forma="<?php echo $forma->id; ?>">
+                                        <input id="forma" type="radio" style="margin-top: 2px" name="forma" class="forma" data-forma="<?php echo $forma->id; ?>">
                                         <?php echo esc($forma->nome); ?>
                                     </label>
                             
@@ -140,11 +148,11 @@
 
                             <div class="form-group col-md-12" style="padding-left: 0">
                                 <label>Ponto de referência</label> *</label>
-                                <input type="text" name="checkout[numero]" class="form-control" required="">
+                                <input type="text" name="checkout[referencia]" class="form-control" required="">
                             </div>
 
                             <div class="form-group col-md-12">
-                                <input type="text" id="forma_id" name="checkout[forma_id]" placeholder="checkout[numero]">
+                                <input type="text" id="forma_id" name="checkout[forma_id]" placeholder="checkout[forma_id]">
                                 <input type="text" id="bairro_slug" name="checkout[bairro_slug]" placeholder="checkout[bairro_slug]">
                             </div>
 
@@ -198,10 +206,12 @@
 
         if (this.checked) {
             $("#troco_para").prop('disabled', true);
+            $("#troco_para").val('Não preciso de troco, pois tenho o valor certinho.');
             $("#troco_para").attr('placeholder', 'Não preciso de troco, pois tenho o valor certinho.');
         } else {
             $("#troco_para").prop('disabled', false);
-            $("#troco_para").attr('placeholder', 'Enviar troco para.');
+            $("#troco_para").val('');
+            $("#troco_para").attr('placeholder', 'Enviar troco para..');
         }
         
     }); // Fim #sem_troco
@@ -256,6 +266,8 @@
                         /* Tem erros de validação */
 
                         $("#cep").html(response.erro);
+                        
+                        $('#btn-checkout').prop('disabled', true);
                         $('#btn-checkout').val('Antes, consulte a taxa de entrega..');
                     }
                     
@@ -269,6 +281,18 @@
                 },
 
             });
+        }
+    });
+
+    $("form").submit(function () {
+        $(this).find(":submit").attr('disabled', 'disabled');
+        $('#btn-checkout').val('Processando o seu perdido..');
+    });
+
+    $(window).keyDown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
         }
     });
 
