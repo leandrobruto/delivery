@@ -65,7 +65,7 @@ class Checkout extends BaseController
         
 
         if (isset($consulta->erro) && !isset($consulta->cep)) {
-            $retono['erro'] = '<span class="text-danger small"> Informe um CEP válido!   </span>';
+            $retono['erro'] = '<span class="text-danger small">Informe um CEP válido!</span>';
 
             return $this->response->setJSON($retono);
         }
@@ -78,7 +78,7 @@ class Checkout extends BaseController
                                     ->first();
                             
         if ($consulta->bairro == null || $bairro == null) {
-            $retono['erro'] = '<span class="text-danger small"> Não atendemos o bairro: '
+            $retono['erro'] = '<span class="text-danger small">Não atendemos o bairro: '
                             . esc($consulta->bairro)
                             . ' - ' . esc($consulta->localidade)
                             . ' - CEP: ' . esc($consulta->cep)
@@ -89,7 +89,7 @@ class Checkout extends BaseController
         }
 
         $retono['valor_entrega'] = 'R$ ' . esc(number_format($bairro->valor_entrega, 2));
-        $retono['bairro'] = '<span class="small"> Valor de entrega para o Bairro: '
+        $retono['bairro'] = '<span class="small">Valor de entrega para o Bairro: '
                             . esc($consulta->bairro)
                             . ' - ' . esc($consulta->localidade)
                             . ' - CEP: ' . esc($consulta->cep)
@@ -102,8 +102,7 @@ class Checkout extends BaseController
                             . ' - ' . esc($consulta->logradouro)
                             . ' - CEP: ' . esc($consulta->cep)
                             . ' - ' . esc($consulta->uf)
-                            . ' - R$ ' . esc(number_format($bairro->valor_entrega, 2))
-                            . '</span>';
+                            . ' - R$ ' . esc(number_format($bairro->valor_entrega, 2));
 
         $retono['logradouro'] = esc($consulta->logradouro);
 
@@ -202,7 +201,7 @@ class Checkout extends BaseController
                     $troco_para = str_replace(',', '', $checkoutPost['troco_para']);
 
                     // if ($troco_para < 1) {
-                    //     // Também funciona para o debug
+                    //     // Também funciona para o debug de $troco_para vazio ou igual a zero
                     // }
                     
                     $pedido->observacoes = 'Ponto de referência: ' . $checkoutPost['referencia'] . ' - Número: ' . $checkoutPost['numero'] . ' - Você informou que precisa de troco para: R$ ' . number_format($troco_para, 2);
@@ -224,11 +223,24 @@ class Checkout extends BaseController
             session()->remove('carrinho');
             session()->remove('endereco_entrega');
 
-            exit('Sucesso');
+            return redirect()->to(site_url("checkout/sucesso/$pedido->codigo"));
 
         } else {
             return redirect()->back();
         }
+    }
+
+    public function sucesso($codigoPedido = null)
+    {
+        $pedido = $this->buscaPedidoOu404($codigoPedido);
+
+        $data = [
+            'titulo' => "Pedido $codigoPedido realizado com suceso",
+            'pedido' => $pedido,
+            "produtos" => unserialize($pedido->produtos),
+        ];
+
+        return view('Checkout/sucesso', $data);
     }
 
     // ------------------- Funções privadas ------------------------ //
@@ -258,4 +270,19 @@ class Checkout extends BaseController
         $email->send();
     }
 
+    /**
+     * @param string $id
+     * @return objeto pedido
+     */
+    private function buscaPedidoOu404(string $codigoPedido = null)
+    {
+        if (!$codigoPedido || !$pedido = $this->pedidoModel
+                                    ->where('codigo', $codigoPedido)
+                                    ->where('usuario_id', $this->usuario->id)
+                                    ->first()) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o pedido $codigoPedido");
+        }
+        
+        return $pedido;
+    }
 }
