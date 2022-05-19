@@ -55,6 +55,17 @@
             font-family: 'Montserrat-Bold';
         }
 
+        .fonte-food {
+            color: #990100 !important;
+            font-family: 'Montserrat-Bold';
+        }
+
+        .panel-food {
+            background: #990100 !important;
+            color: white !important;
+            font-family: 'Montserrat-Bold';
+        }
+
     </style>
 
     <!-- Essa section renderizará os estilos específicos da view que estender esse layout -->
@@ -89,7 +100,7 @@
                 <div class="container pos_rel" style="min-height: 1vh !important" >
 
                     <!-- Indicators -->
-                    <ol class="carousel-indicators">
+                    <ol class="carousel-indicators" style="max-height: 450px">
                         <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
                         <li data-target="#main-carousel" data-slide-to="1"></li>
                         <li data-target="#main-carousel" data-slide-to="2"></li>
@@ -264,10 +275,7 @@
                                     <div class="navbar-right">
                                         <ul class="nav navbar-nav">
                                             <li><a class="page-scroll" href="#header">Home</a></li>
-                                            <li><a class="page-scroll" href="#about_us">About</a></li>
-                                            <li><a class="page-scroll" href="#menu">Menus</a></li>
-                                            <li><a class="page-scroll" href="#gallery">Gallery</a></li>
-                                            <li><a class="page-scroll" href="#reservation">Reservation</a></li>
+                                            <li><a class="page-scroll" href="<?php echo site_url('bairros'); ?>">Bairros atendidos</a></li>
                                             <li><a class="page-scroll" href="#footer">Contact</a></li>
 
                                             <?php if (session()->has('carrinho') && count(session()->get('carrinho')) > 0): ?>
@@ -357,7 +365,7 @@
 
             <!--    Google map, Social links    -->
             <div class="section" id="contact">
-                <div id="googleMap"></div> 
+                <div id="googleMap" style="max-height: 200px"></div> 
                 <div class="footer_pos">
                     <div class="container">
                         <div class="footer_content">
@@ -479,10 +487,8 @@
         </div>
         <ul class="rmenu_list">
             <li><a class="page-scroll" href="#header">Home</a></li>
-            <li><a class="page-scroll" href="#about_us">About</a></li>
-            <li><a class="page-scroll" href="#menu">Menus</a></li>
-            <li><a class="page-scroll" href="#gallery">Gallery</a></li>
-            <li><a class="page-scroll" href="#reservation">Reservation</a></li>
+            <li><a class="page-scroll" href="<?php echo site_url('bairros'); ?>">Bairros atendidos</a></li>
+            <li><a class="page-scroll" href="#footer">Contact</a></li>
             <li><a class="page-scroll" href="#footer">Contact</a></li>
         </ul>
         <div class="right_menu_addr top_addr">

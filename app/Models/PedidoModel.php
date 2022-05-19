@@ -29,6 +29,23 @@ class PedidoModel extends Model
     protected $updatedField  = 'atualizado_em';
     protected $deletedField  = 'deletado_em';
 
+    /**
+     * @uso Controller pedidos no método procurar com o autocomplete
+     * @param string $term
+     * @return array pedidos
+     */
+    public function procurar ($term) {
+        if ($term === null) {
+            return [];
+        }
+
+        return $this->select('id, codigo')
+                    ->like('codigo', $term)
+                    ->withDeleted(true)
+                    ->get()
+                    ->getResult();
+    }
+
     public function geraCodigoPedido() {
         
         do {
@@ -40,5 +57,34 @@ class PedidoModel extends Model
         } while ($this->countAllResults() > 1);
     
         return $codigoPedido;
+    }
+
+    /**
+     * @uso controller Admin\Pedidos
+     */
+    public function listaTodosOsPedidos() {
+
+        return $this->select(['pedidos.*', 'usuarios.id AS cliente',])
+                            ->join('usuarios', 'usuarios.id = pedidos.usuario_id')
+                            ->orderBy('pedidos.criado_em', 'DESC')
+                            ->paginate(10);
+    }
+
+    public function buscaPedidoOu404(string $codigoPedido)
+    {
+        if (!$codigoPedido) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o pedido $codigoPedido");
+        }
+
+        $pedido = $this->select(['pedidos.*', 'entregadores.nome AS entregador'])
+                        ->join('entregadores', 'entregadores.id = pedidos.entregador_id', 'LEFT')
+                        ->where('pedidos.codigo', $codigoPedido)
+                        ->first();
+
+        if (!$pedido) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o pedido $codigoPedido");
+        }
+
+        return $pedido;
     }
 }
