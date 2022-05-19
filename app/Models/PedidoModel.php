@@ -76,7 +76,8 @@ class PedidoModel extends Model
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o pedido $codigoPedido");
         }
 
-        $pedido = $this->select(['pedidos.*', 'entregadores.nome AS entregador'])
+        $pedido = $this->select(['pedidos.*', 'usuarios.nome', 'usuarios.email', 'entregadores.nome AS entregador'])
+                        ->join('usuarios', 'usuarios.id = pedidos.usuario_id')
                         ->join('entregadores', 'entregadores.id = pedidos.entregador_id', 'LEFT')
                         ->where('pedidos.codigo', $codigoPedido)
                         ->first();

@@ -45,7 +45,7 @@
             </label>
           </div>
 
-          <div id="box_entregador" class="form-group">
+          <div id="box_entregador" class="form-group d-none">
 
               <select name="entregador_id" class="form-control text-dark">
 
@@ -53,7 +53,7 @@
 
                 <?php foreach($entregadores as $entregador): ?>
 
-                <option value="<?php $entregador->id; ?>" <?php $entregador->id == $pedido->entregador_id ? 'selected' : ''; ?>>
+                <option value="<?php echo $entregador->id; ?>" <?php echo $entregador->id == $pedido->entregador_id ? 'selected' : ''; ?>>
                   <?php echo esc($entregador->nome); ?>
                 </option>
                 
@@ -65,17 +65,19 @@
 
           <div class="form-check form-check-flat form-check-primary mb-4">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="situacao" value="2" <?php echo ($pedido->situacao == 2 ? 'checked' : ''); ?> />
+                <input type="radio" class="form-check-input situacao" name="situacao" value="2" <?php echo ($pedido->situacao == 2 ? 'checked' : ''); ?> />
                 Pedido entregue
             </label>
           </div>
 
           <div class="form-check form-check-flat form-check-primary mb-4">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="situacao" value="3" <?php echo ($pedido->situacao == 3 ? 'checked' : ''); ?> />
+                <input type="radio" class="form-check-input situacao" name="situacao" value="3" <?php echo ($pedido->situacao == 3 ? 'checked' : ''); ?> />
                 Pedido cancelado
             </label>
           </div>
+
+          <input id="btn_editar_pedido" type="submit" class="btn btn-success" value="Editar Pedido">
 
           <a href="<?php echo site_url("admin/pedidos/show/$pedido->codigo"); ?>" class="btn btn-light text-dark btn-sm">
             <i class="mdi mdi-arrow-left btn-icon-prepend"></i>
@@ -97,5 +99,36 @@
 
   <script src="<?php echo site_url('admin/vendors/mask/jquery.mask.min.js') ?>"></script>
   <script src="<?php echo site_url('admin/vendors/mask/app.js') ?>"></script>
+
+  <script>
+
+    $(document).ready(function() {
+
+      var entregador_id = $("#saiu_entrega").prop('checked');
+
+      if (entregador_id) {
+        $("#box_entregador").removeClass('d-none');
+      }
+
+      $(".situacao").on('click', function () {
+
+        var valor = $(this).val();
+        
+        if (valor == 1) {
+          $("#box_entregador").removeClass('d-none');
+        } else {
+          $("#box_entregador").addClass('d-none');
+        }
+
+      });
+
+      $("form").submit(function () {
+        $(this).find(":submit").attr('disabled', 'disabled');
+        $('#btn_editar_pedido').val('Editando o perdido..');
+      });
+
+    });
+  
+  </script>
 
 <?php echo $this->endSection(); ?>
