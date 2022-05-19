@@ -220,7 +220,19 @@
                             <div class="top_addr">
                                 <span><i class="fa fa-map-marker" aria-hidden="true"></i> Brasil, Juazeiro do Norte, 63050-460</span>
                                 <span><i class="fa fa-phone" aria-hidden="true"></i> 123 456 789</span>
-                                <span><i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 - 21:00</span>
+
+                                <?php $expedienteHoje = expedienteHoje(); ?>
+
+                                <?php if ($expedienteHoje->situacao == false): ?>
+
+                                    <span><i class="fa fa-lock" aria-hidden="true"></i>Hoje estamos fechados</span>
+
+                                <?php else: ?>
+
+                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo esc($expedienteHoje->abertura); ?> - <?php echo esc($expedienteHoje->fechamento); ?></span>
+
+                                <?php endif; ?>
+                               
                                 <div class="pull-right search-block">
                                     <i class="fa fa-search" id="search" aria-hidden="true"></i>
                                 </div>
@@ -239,7 +251,7 @@
                             <div id="navbar_content">
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <div class="navbar-header">
-                                    <a class="navbar-brand" href="#">
+                                    <a class="navbar-brand" href="<?php echo site_url('/'); ?>">
                                         <img src="<?php echo site_url('web/'); ?>src/assets/img/logo.png" alt="logo" />
                                     </a>
                                     <a href="#cd-nav" class="cd-nav-trigger right_menu_icon">
@@ -322,6 +334,12 @@
 
             <?php endif; ?>
 
+            <?php if (session()->has('expediente')): ?>
+                
+                <div class="alert alert-warning" role="alert"><strong></strong> <?php echo session('expediente'); ?></div>
+
+            <?php endif; ?>
+
             <!-- Captura os erros de CSRF - Ação não permitida  -->
             <?php if (session()->has('error')): ?>
                 
@@ -349,63 +367,33 @@
                                     <p class="footer_txt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries but also the leap into electronic typesetting. </p>
                                 </div>
                                 <div class="col-sm-6 col-md-5">
-                                    <h4 class="footer_ttl footer_ttl_padd">working hours</h4>
+
+                                    <?php $expedientes = expedientes(); ?>
+
+                                    <h4 class="footer_ttl footer_ttl_padd">Nosso expediente</h4>
                                     <div class="footer_border">
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Monday</div>
-                                            <div class="week_time text-right">Closed</div>
-                                        </div>
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Tuesday</div>
-                                            <div class="week_time">
-                                                <span class="week_time_start">10 am</span>
-                                                <span class="week_time_node">-</span>
-                                                <span class="week_time_end">12 am</span>
-                                            </div>
-                                        </div>
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Wednsday</div>
-                                            <div class="week_time">
-                                                <span class="week_time_start">10 am</span>
-                                                <span class="week_time_node">-</span>
-                                                <span class="week_time_end">12 am</span>
-                                            </div>
 
-                                        </div>
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Thursday</div>
-                                            <div class="week_time">
-                                                <span class="week_time_start">10 am</span>
-                                                <span class="week_time_node">-</span>
-                                                <span class="week_time_end">12 am</span>
-                                            </div>
+                                        <?php foreach ($expedientes as $dia): ?>
+                                            <div class="week_row clearfix">
+                                                <div class="week_day"><?php echo esc($dia->dia_descricao); ?></div>
 
-                                        </div>
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Friday</div>
-                                            <div class="week_time">
-                                                <span class="week_time_start">10 am</span>
-                                                <span class="week_time_node">-</span>
-                                                <span class="week_time_end">12 am</span>
-                                            </div>
+                                                <?php if ($dia->situacao == false): ?>
+                                                    <div class="week_time text-right">Fechado</div>
+                                                <?php else: ?>
+                                                    <div class="week_time text-right">Aberto</div>
 
-                                        </div>
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Saturday</div>
-                                            <div class="week_time">
-                                                <span class="week_time_start">7 am</span>
-                                                <span class="week_time_node">-</span>
-                                                <span class="week_time_end">1 am</span>
+                                                    <div class="week_time">
+                                                        <span class="week_time_start"><?php echo esc($dia->abertura); ?></span>
+                                                        <span class="week_time_node">-</span>
+                                                        <span class="week_time_end"><?php echo esc($dia->fechamento); ?></span>
+                                                    </div>
+
+                                                <?php endif; ?>
                                             </div>
-                                        </div>
-                                        <div class="week_row clearfix">
-                                            <div class="week_day">Sunday</div>
-                                            <div class="week_time">
-                                                <span class="week_time_start">7 am</span>
-                                                <span class="week_time_node">-</span>
-                                                <span class="week_time_end">1 am</span>
+                                            <div class="week_row clearfix">
+                                                
                                             </div>
-                                        </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3">
@@ -500,7 +488,19 @@
         <div class="right_menu_addr top_addr">
             <span><i class="fa fa-map-marker" aria-hidden="true"></i> Brasil, Juazeiro do Norte, 63050-460</span>
             <span><i class="fa fa-phone" aria-hidden="true"></i> 123 456 789</span>
-            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 - 21:00</span>
+
+            <?php $expedienteHoje = expedienteHoje(); ?>
+
+            <?php if ($expedienteHoje->situacao == false): ?>
+
+                <span><i class="fa fa-lock" aria-hidden="true"></i>Hoje estamos fechados</span>
+                
+            <?php else: ?>
+
+                <span><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo esc($expedienteHoje->abertura); ?> - <?php echo esc($expedienteHoje->fechamento); ?></span>
+                
+            <?php endif; ?>
+
         </div>
     </nav>
 
@@ -525,7 +525,7 @@
     <script src="<?php echo site_url('web/') ?>src/assets/js/jquery.fancybox.js"></script>
     <script src="<?php echo site_url('web/') ?>src/assets/js/loadMoreResults.js"></script>
     <script src="<?php echo site_url('web/') ?>src/assets/js/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcg5Y2D1fpGI12T8wcbtPIsyGdw-_NV1Y&amp;callback=myMap"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcg5Y2D1fpGI12T8wcbtPIsyGdw-_NV1Y&amp;callback=myMap"></script> -->
 
     <!-- Essa section renderizará os scripts específicos da view que estender esse layout -->
     <?php echo $this->renderSection('scripts'); ?>

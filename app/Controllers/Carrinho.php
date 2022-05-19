@@ -14,6 +14,9 @@ class Carrinho extends BaseController
     private $bairroModel;
 
     private $acao;
+
+    private $horaAtual;
+    private $expedienteHoje;
     
     public function __construct() {
 
@@ -25,6 +28,8 @@ class Carrinho extends BaseController
         $this->bairroModel = new \App\Models\BairroModel();
 
         $this->acao = service('router')->methodName();
+
+        $this->horaAtual = date('H:i');
     }
 
     public function index() {
@@ -42,6 +47,16 @@ class Carrinho extends BaseController
     {
         
         if ($this->request->getMethod() == 'post') {
+
+            $this->expedienteHoje = expedienteHoje();
+
+            if ($this->expedienteHoje->situacao == false) {
+                return redirect()->back()->with('expediente', 'Hoje estamos fechados para dar uma geral na casa.');
+            }
+
+            if ($this->horaAtual > $this->expedienteHoje->fechamento || $this->horaAtual < $this->expedienteHoje->abertura) {
+                return redirect()->back()->with('expediente', "Nosso horário de atendimento para " . $this->expedienteHoje->dia_descricao . " é das " . $this->expedienteHoje->abertura . " às " . $this->expedienteHoje->fechamento);
+            }
 
             $produtoPost = $this->request->getPost('produto');
 
@@ -168,6 +183,16 @@ class Carrinho extends BaseController
     public function especial() 
     {
         if ($this->request->getMethod() === 'post') {
+
+            $this->expedienteHoje = expedienteHoje();
+
+            if ($this->expedienteHoje->situacao == false) {
+                return redirect()->back()->with('expediente', 'Hoje estamos fechados para dar uma geral na casa.');
+            }
+
+            if ($this->horaAtual > $this->expedienteHoje->fechamento || $this->horaAtual < $this->expedienteHoje->abertura) {
+                return redirect()->back()->with('expediente', "Nosso horário de atendimento para " . $this->expedienteHoje->dia_descricao . " é das " . $this->expedienteHoje->abertura . " às " . $this->expedienteHoje->fechamento);
+            }
 
             $produtoPost = $this->request->getPost();
 
@@ -516,4 +541,5 @@ class Carrinho extends BaseController
 
         return $produtos;
     }
+
 }

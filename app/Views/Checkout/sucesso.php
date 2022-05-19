@@ -35,7 +35,7 @@
                 <?php endif; ?>
 
                 <div class="col-md-12 col-xs-12">
-                    <h4>No momento o seu pedido está com o status de <?php echo $pedido->exibeSituacaoPedido(); ?></h4>
+                    <h4>No momento o seu pedido está com o status de <?php echo $pedido->exibeSituacaoDoPedido(); ?></h4>
                 </div>
 
                 <?php if ($pedido->situacao != 3): ?>
