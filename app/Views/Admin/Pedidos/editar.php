@@ -40,21 +40,39 @@
 
           <div class="form-check form-check-flat form-check-primary mb-4">
             <label for="saiu_entrega" class="form-check-label">
-                <input type="radio" class="form-check-input" name="situacao" id="saiu_entrega" value="1" <?php echo ($pedido->situacao == 1 ? 'checked=' : ''); ?> />
+                <input type="radio" class="form-check-input situacao" name="situacao" id="saiu_entrega" value="1" <?php echo ($pedido->situacao == 1 ? 'checked=' : ''); ?> />
                 Saiu para entrega
             </label>
           </div>
 
+          <div id="box_entregador" class="form-group">
+
+              <select name="entregador_id" class="form-control text-dark">
+
+                <option value="">Escolha o entregador..</option>
+
+                <?php foreach($entregadores as $entregador): ?>
+
+                <option value="<?php $entregador->id; ?>" <?php $entregador->id == $pedido->entregador_id ? 'selected' : ''; ?>>
+                  <?php echo esc($entregador->nome); ?>
+                </option>
+                
+                <?php endforeach; ?>
+
+              </select>
+
+          </div>
+
           <div class="form-check form-check-flat form-check-primary mb-4">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="situacao" value="2" <?php echo ($pedido->situacao == 2 ? 'checked=' : ''); ?> />
+                <input type="radio" class="form-check-input" name="situacao" value="2" <?php echo ($pedido->situacao == 2 ? 'checked' : ''); ?> />
                 Pedido entregue
             </label>
           </div>
 
           <div class="form-check form-check-flat form-check-primary mb-4">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="situacao" value="3" <?php echo ($pedido->situacao == 3 ? 'checked=' : ''); ?> />
+                <input type="radio" class="form-check-input" name="situacao" value="3" <?php echo ($pedido->situacao == 3 ? 'checked' : ''); ?> />
                 Pedido cancelado
             </label>
           </div>

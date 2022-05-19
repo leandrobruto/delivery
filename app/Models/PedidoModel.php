@@ -64,7 +64,7 @@ class PedidoModel extends Model
      */
     public function listaTodosOsPedidos() {
 
-        return $this->select(['pedidos.*', 'usuarios.id AS cliente',])
+        return $this->select(['pedidos.*', 'usuarios.nome AS cliente',])
                             ->join('usuarios', 'usuarios.id = pedidos.usuario_id')
                             ->orderBy('pedidos.criado_em', 'DESC')
                             ->paginate(10);

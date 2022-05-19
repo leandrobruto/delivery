@@ -7,10 +7,12 @@ use App\Controllers\BaseController;
 class Pedidos extends BaseController
 {
     private $pedidoModel;
+    private $entregadorModel;
 
     public function __construct() {
 
         $this->pedidoModel = new \App\Models\PedidoModel();
+        $this->entregadorModel = new \App\Models\EntregadorModel();
         
     }
 
@@ -76,6 +78,7 @@ class Pedidos extends BaseController
         $data = [
             'titulo'     => "Editando o pedido $pedido->codigo",
             'pedido' => $pedido,
+            'entregadores' => $this->entregadorModel->select('id, nome')->where('ativo', true)->findAll(),
         ];
 
         return view('Admin/Pedidos/editar', $data);
