@@ -59,4 +59,26 @@ class Pedidos extends BaseController
         return view('Admin/Pedidos/show', $data);
     }
 
+    public function editar($codigoPedido = null)
+    {
+        $pedido = $this->pedidoModel->buscaPedidoOu404($codigoPedido);
+
+        if ($pedido->situacao == 2) {
+
+            return redirect()->back()->with('info', 'Esse pedido já foi entregue e portanto não é possível editá-lo.');
+        }
+
+        if ($pedido->situacao == 3) {
+
+            return redirect()->back()->with('info', 'Esse pedido foi cancelado e portanto não é possível editá-lo.');
+        }
+
+        $data = [
+            'titulo'     => "Editando o pedido $pedido->codigo",
+            'pedido' => $pedido,
+        ];
+
+        return view('Admin/Pedidos/editar', $data);
+    }
+
 }
