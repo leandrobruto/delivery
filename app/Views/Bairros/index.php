@@ -36,23 +36,35 @@
         <!-- product -->
         <div class="product-content product-wrap clearfix product-deatil">
             <div class="row">
-                
-            <div class="col-xs-12 col-md-12">
+
+            <?php if (empty($bairros)): ?>
+
+                <div class="col-xs-12 col-md-12">
         
-                <h2 class="section-title"><?php echo esc($titulo); ?></h2>
+                    <h2 class="section-title">Não há dados para exibir.</h2>
 
-            </div>
-
-            <?php foreach($bairros as $bairro): ?>
-
-                <div class="col-md-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading panel-food"><?php echo esc($bairro->nome); ?> - <?php echo esc($bairro->cidade); ?> - CE</div>
-                        <div class="panel-body fonte-food">Taxa de entrega: R$&nbsp<?php echo esc(number_format($bairro->valor_entrega, 2)); ?></div>
-                    </div>
                 </div>
 
-            <?php endforeach; ?>
+            <?php else: ?>
+
+                <div class="col-xs-12 col-md-12">
+        
+                    <h2 class="section-title"><?php echo esc($titulo); ?></h2>
+
+                </div>
+
+                <?php foreach($bairros as $bairro): ?>
+
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading panel-food"><?php echo esc($bairro->nome); ?> - <?php echo esc($bairro->cidade); ?> - CE</div>
+                            <div class="panel-body fonte-food">Taxa de entrega: R$&nbsp<?php echo esc(number_format($bairro->valor_entrega, 2)); ?></div>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+
+            <?php endif; ?>
 
             </div>
         </div>

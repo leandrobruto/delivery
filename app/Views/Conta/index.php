@@ -33,7 +33,7 @@
 
         <div class="col-md-12">
             
-            <?php if (!isset($pedidos)): ?>
+            <?php if (empty($pedidos)): ?>
 
                 <h4 class="text-info">Nessa área aparecerá o seu histórico de pedidos realizados.</h4>
 

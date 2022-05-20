@@ -35,68 +35,77 @@
           Cadastrar
         </a>
 
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Imagem</th>
-                <th>Nome</th>
-                <th>Categoria</th>
-                <th>Especificações</th>
-                <th>Data de criação</th>
-                <th>Ativo</th>
-                <th>Situação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($produtos as $produto): ?>
+        <?php if (empty($produtos)): ?>
+         
+         <p>Não há dados para exibir.</p>
+
+        <?php else: ?>
+
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
                 <tr>
-                  <td class="py-1">
-                    <?php if ($produto->imagem): ?>
+                  <th>Imagem</th>
+                  <th>Nome</th>
+                  <th>Categoria</th>
+                  <th>Especificações</th>
+                  <th>Data de criação</th>
+                  <th>Ativo</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($produtos as $produto): ?>
+                  <tr>
+                    <td class="py-1">
+                      <?php if ($produto->imagem): ?>
 
-                      <img src="<?php echo site_url("admin/produtos/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome) ?>"/>
+                        <img src="<?php echo site_url("admin/produtos/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome) ?>"/>
 
-                    <?php else: ?>
-                      <img src="<?php echo site_url('admin/images/produto-sem-imagem.jpg'); ?>" alt="Produto sem imagem"/>
-                    <?php endif; ?>
-                  </td>
-                  <td>
-                    <a href="<?php echo site_url("admin/produtos/show/$produto->id"); ?>">
-                      <?php echo $produto->nome; ?>
-                    </a>
-                  </td>
-                  <td><?php echo $produto->categoria; ?></td>
-                  <td>
-                    <?php foreach ($especificacoes as $especificacao): ?>
-                      
-                      <?php if ($produto->id == $especificacoes->produto_id): ?>
-                        <p><?php echo esc($especificacao->nome); ?></p> : R$&nbsp;<?php echo esc($especificacao->preco); ?>
+                      <?php else: ?>
+                        <img src="<?php echo site_url('admin/images/produto-sem-imagem.jpg'); ?>" alt="Produto sem imagem"/>
+                      <?php endif; ?>
+                    </td>
+                    <td>
+                      <a href="<?php echo site_url("admin/produtos/show/$produto->id"); ?>">
+                        <?php echo $produto->nome; ?>
+                      </a>
+                    </td>
+                    <td><?php echo $produto->categoria; ?></td>
+                    <td>
+                      <?php foreach ($especificacoes as $especificacao): ?>
+                        
+                        <?php if ($produto->id == $especificacoes->produto_id): ?>
+                          <p><?php echo esc($especificacao->nome); ?></p> : R$&nbsp;<?php echo esc($especificacao->preco); ?>
+                        <?php endif; ?>
+
+                      <?php endforeach; ?>
+                    </td>
+                    <td><?php echo $produto->criado_em->humanize(); ?></td>
+                    <td><?php echo ($produto->ativo && $produto->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
+                    <td>
+                      <?php echo ($produto->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
+                    
+                      <?php if ($produto->deletado_em != null): ?>
+                        <a href="<?php echo site_url("admin/produtos/desfazerExclusao/$produto->id"); ?>" class="badge badge-dark ml-2">
+                          <i class="mdi mdi-undo btn-icon-prepend"></i>
+                          Desfazer
+                        </a>
                       <?php endif; ?>
 
-                    <?php endforeach; ?>
-                  </td>
-                  <td><?php echo $produto->criado_em->humanize(); ?></td>
-                  <td><?php echo ($produto->ativo && $produto->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
-                  <td>
-                    <?php echo ($produto->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
-                  
-                    <?php if ($produto->deletado_em != null): ?>
-                      <a href="<?php echo site_url("admin/produtos/desfazerExclusao/$produto->id"); ?>" class="badge badge-dark ml-2">
-                        <i class="mdi mdi-undo btn-icon-prepend"></i>
-                        Desfazer
-                      </a>
-                    <?php endif; ?>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
 
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-
-          <div class="mt-3">
-            <?php echo $pager->links(); ?>
+            <div class="mt-3">
+              <?php echo $pager->links(); ?>
+            </div>
           </div>
-        </div>
+
+        <?php endif; ?>
+
       </div>
     </div>
   </div>

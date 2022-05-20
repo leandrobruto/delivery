@@ -28,17 +28,27 @@
         <div class="menu_filter text-center">
             <ul class="list-unstyled list-inline d-inline-block">
 
-                <li id="todas" class="item active">
-                    <a href="javascript:;" class="filter-button" data-filter="todas">Todos</a>
-                </li>
+                <?php if(empty($categorias)): ?>
 
-                <?php foreach ($categorias as $key => $categoria): ?>
-                    
-                    <li class="item">
-                        <a href="javascript:;" class="filter-button" data-filter="<?php echo $categoria->slug; ?>"><?php echo esc($categoria->nome); ?></a>
+                    <li class="item active">
+                        <a href="javascript:;" class="filter-button">Não há categorias para exibir.</a>
                     </li>
 
-                <?php endforeach; ?>
+                <?php else: ?>
+
+                    <li id="todas" class="item active">
+                        <a href="javascript:;" class="filter-button" data-filter="todas">Todas</a>
+                    </li>
+                
+                    <?php foreach ($categorias as $key => $categoria): ?>
+                    
+                        <li class="item">
+                            <a href="javascript:;" class="filter-button" data-filter="<?php echo $categoria->slug; ?>"><?php echo esc($categoria->nome); ?></a>
+                        </li>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
 
             </ul>
         </div> 
@@ -48,29 +58,39 @@
 
             <div class="row">
 
-                <?php foreach ($produtos as $key => $produto): ?>
+                <?php if(empty($produtos)): ?>
 
-                    <div class="col-sm-6 filtr-item image filter <?php echo $produto->categoria_slug; ?> active">
-                        <a href="<?php echo site_url("produto/detalhes/$produto->slug"); ?>" class="block fancybox" data-fancybox-group="fancybox">
-                            <div class="content">
-                                <div class="filter_item_img">
-                                    <i class="fa fa-search-plus"></i>
-                                    <?php if ($produto->imagem && $produto->deletedo_em == null): ?>
-                                        <img class="card-img-top w-75" src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
-                                    <?php else: ?>
-                                        <img class="card-img-top w-75" src="<?php echo site_url("admin/images/produto-sem-imagem.jpg"); ?>" alt="<?php echo esc($produto->nome); ?>" /> 
-                                    <?php endif; ?>
-                                </div>
-                                <div class="info">
-                                    <div class="name"><?php echo esc($produto->nome); previous_url() ?></div>
-                                    <div class="short"><?php echo word_limiter($produto->ingredientes, 5); ?></div>
-                                    <span class="filter_item_price">A partir de  R$&nbsp;<?php echo esc(number_format($produto->preco , 2)); ?></span>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="title-block">
+                        <h2 class="section-title">Não há delícias para exibir no momento</h2>
                     </div>
 
-                <?php endforeach; ?>
+                <?php else: ?>
+
+                    <?php foreach ($produtos as $key => $produto): ?>
+
+                        <div class="col-sm-6 filtr-item image filter <?php echo $produto->categoria_slug; ?> active">
+                            <a href="<?php echo site_url("produto/detalhes/$produto->slug"); ?>" class="block fancybox" data-fancybox-group="fancybox">
+                                <div class="content">
+                                    <div class="filter_item_img">
+                                        <i class="fa fa-search-plus"></i>
+                                        <?php if ($produto->imagem && $produto->deletedo_em == null): ?>
+                                            <img class="card-img-top w-75" src="<?php echo site_url("produto/imagem/$produto->imagem"); ?>" alt="<?php echo esc($produto->nome); ?>" />
+                                        <?php else: ?>
+                                            <img class="card-img-top w-75" src="<?php echo site_url("admin/images/produto-sem-imagem.jpg"); ?>" alt="<?php echo esc($produto->nome); ?>" /> 
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="info">
+                                        <div class="name"><?php echo esc($produto->nome); previous_url() ?></div>
+                                        <div class="short"><?php echo word_limiter($produto->ingredientes, 5); ?></div>
+                                        <span class="filter_item_price">A partir de  R$&nbsp;<?php echo esc(number_format($produto->preco , 2)); ?></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
 
             </div>
 

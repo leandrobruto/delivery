@@ -35,58 +35,67 @@
           Cadastrar
         </a>
 
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Imagem</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Placa</th>
-                <th>Ativo</th>
-                <th>Situação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($entregadores as $entregador): ?>
+        <?php if (empty($entregadores)): ?>
+         
+         <p>Não há dados para exibir.</p>
+
+        <?php else: ?>
+
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
                 <tr>
-                  <td class="py-1">
-                    <?php if ($entregador->imagem): ?>
-
-                      <img src="<?php echo site_url("admin/entregadores/imagem/$entregador->imagem"); ?>" alt="<?php echo esc($entregador->nome) ?>"/>
-
-                    <?php else: ?>
-                      <img src="<?php echo site_url('admin/images/entregador-sem-imagem.png'); ?>" alt="Entregador sem imagem"/>
-                    <?php endif; ?>
-                  </td>
-                  <td>
-                    <a href="<?php echo site_url("admin/entregadores/show/$entregador->id"); ?>">
-                      <?php echo $entregador->nome; ?>
-                    </a>
-                  </td>
-                  <td><?php echo $entregador->email; ?></td>
-                  <td><?php echo $entregador->placa; ?></td>
-                  <td><?php echo ($entregador->ativo && $entregador->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
-                  <td>
-                    <?php echo ($entregador->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
-                  
-                    <?php if ($entregador->deletado_em != null): ?>
-                      <a href="<?php echo site_url("admin/entregadores/desfazerexclusao/$entregador->id"); ?>" class="badge badge-dark ml-2">
-                        <i class="mdi mdi-undo btn-icon-prepend"></i>
-                        Desfazer
-                      </a>
-                    <?php endif; ?>
-
-                  </td>
+                  <th>Imagem</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Placa</th>
+                  <th>Ativo</th>
+                  <th>Situação</th>
                 </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <?php foreach ($entregadores as $entregador): ?>
+                  <tr>
+                    <td class="py-1">
+                      <?php if ($entregador->imagem): ?>
 
-          <div class="mt-3">
-            <?php echo $pager->links(); ?>
+                        <img src="<?php echo site_url("admin/entregadores/imagem/$entregador->imagem"); ?>" alt="<?php echo esc($entregador->nome) ?>"/>
+
+                      <?php else: ?>
+                        <img src="<?php echo site_url('admin/images/entregador-sem-imagem.png'); ?>" alt="Entregador sem imagem"/>
+                      <?php endif; ?>
+                    </td>
+                    <td>
+                      <a href="<?php echo site_url("admin/entregadores/show/$entregador->id"); ?>">
+                        <?php echo $entregador->nome; ?>
+                      </a>
+                    </td>
+                    <td><?php echo $entregador->email; ?></td>
+                    <td><?php echo $entregador->placa; ?></td>
+                    <td><?php echo ($entregador->ativo && $entregador->deletado_em == null) ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>' ?></td>
+                    <td>
+                      <?php echo ($entregador->deletado_em == null) ? '<label class="badge badge-primary">Disponível</label>' : '<label class="badge badge-danger">Excluído</label>' ?>
+                    
+                      <?php if ($entregador->deletado_em != null): ?>
+                        <a href="<?php echo site_url("admin/entregadores/desfazerexclusao/$entregador->id"); ?>" class="badge badge-dark ml-2">
+                          <i class="mdi mdi-undo btn-icon-prepend"></i>
+                          Desfazer
+                        </a>
+                      <?php endif; ?>
+
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+
+            <div class="mt-3">
+              <?php echo $pager->links(); ?>
+            </div>
           </div>
-        </div>
+
+        <?php endif; ?>
+
       </div>
     </div>
   </div>
