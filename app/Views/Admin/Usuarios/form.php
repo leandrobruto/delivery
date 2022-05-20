@@ -36,21 +36,25 @@
 
 </div>
 
-<div class="form-check form-check-flat form-check-primary mb-2">
-    <label for="ativo" class="form-check-label">
-        <input type="hidden" name="ativo" value="0" />
-        <input type="checkbox" class="form-check-input" name="ativo" id="ativo" value="1" <?php if (old('ativo', $usuario->ativo)): ?> checked="" <?php endif; ?> />
-        Ativo
-    </label>
-</div>
+<?php if ($usuario->id != usuarioLogado()->id): ?>
 
-<div class="form-check form-check-flat form-check-primary mb-4">
-    <label for="is_admin" class="form-check-label">
-        <input type="hidden" name="is_admin" value="0" />
-        <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin" value="1" <?php if (old('is_admin', $usuario->is_admin)): ?> checked="" <?php endif; ?> />
-        Administrador
-    </label>
-</div>
+    <div class="form-check form-check-flat form-check-primary mb-2">
+        <label for="ativo" class="form-check-label">
+            <input type="hidden" name="ativo" value="0" />
+            <input type="checkbox" class="form-check-input" name="ativo" id="ativo" value="1" <?php if (old('ativo', $usuario->ativo)): ?> checked="" <?php endif; ?> />
+            Ativo
+        </label>
+    </div>
+
+    <div class="form-check form-check-flat form-check-primary mb-4">
+        <label for="is_admin" class="form-check-label">
+            <input type="hidden" name="is_admin" value="0" />
+            <input type="checkbox" class="form-check-input" name="is_admin" id="is_admin" value="1" <?php if (old('is_admin', $usuario->is_admin)): ?> checked="" <?php endif; ?> />
+            Administrador
+        </label>
+    </div>
+    
+<?php endif; ?>
 
 <button type="submit" class="btn btn-primary btn-sm mr-2">
     <i class="mdi mdi-checkbox-marked-circle btn-icon-prepend"></i>

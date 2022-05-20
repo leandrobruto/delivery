@@ -148,4 +148,11 @@ class UsuarioModel extends Model
             $this->protect(false)->save($usuario);
         }
     }
+
+    public function recuperaTotalClientesAtivos() {
+
+        return $this->where('is_admin', false)
+                    ->where('ativo', true)
+                    ->countAllResults();
+    }
 }

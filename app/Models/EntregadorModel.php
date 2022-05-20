@@ -84,4 +84,10 @@ class EntregadorModel extends Model
                     ->set('deletado_em', null)
                     ->update();
     }
+
+    public function recuperaTotalEntregadoresAtivos() {
+
+        return $this->where('ativo', true)
+                    ->countAllResults();
+    }
 }
