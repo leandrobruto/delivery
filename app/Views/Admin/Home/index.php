@@ -137,7 +137,7 @@
         <p class="card-title">Produtos + vendidos</p>
         <ul class="list-arrow">
           
-          <?php if (!isset($produtosMaisVendidos)): ?>
+          <?php if (empty($produtosMaisVendidos)): ?>
 
             <p class="card-title text-info">Não há dados para exibir no momento</p>
 
@@ -164,7 +164,7 @@
         <p class="card-title">Top clientes</p>
         <ul class="list-arrow">
           
-          <?php if (!isset($clientesMaisAssiduos)): ?>
+          <?php if (empty($clientesMaisAssiduos)): ?>
 
             <p class="card-title text-info">Não há dados para exibir no momento</p>
 
@@ -191,7 +191,7 @@
         <p class="card-title">Top entregadores</p>
         <ul class="list-unstyled">
           
-          <?php if (!isset($entregadoresMaisAssiduos)): ?>
+          <?php if (empty($entregadoresMaisAssiduos)): ?>
 
             <p class="card-title text-info">Não há dados para exibir no momento</p>
 
