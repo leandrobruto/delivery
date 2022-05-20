@@ -26,7 +26,9 @@ class Home extends BaseController
             'valorPedidosCancelados' => $this->pedidoModel->valorPedidosCancelados(),
             'totalClientesAtivos' => $this->usuarioModel->recuperaTotalClientesAtivos(),
             'totalEntregadoresAtivos' => $this->entregadorModel->recuperaTotalEntregadoresAtivos(),
-            'produtosMaisVendidos' => $this->pedidoProdutoModel->recuperaProdutosMaisVendidos(2),
+            'produtosMaisVendidos' => $this->pedidoProdutoModel->recuperaProdutosMaisVendidos(5),
+            'clientesMaisAssiduos' => $this->pedidoModel->recuperaClientesMaisAssiduos(5),
+            'entregadoresMaisAssiduos' => $this->entregadorModel->recuperaEntregadoresMaisAssiduos(5),
         ];
 
         $novosPedidos = $this->pedidoModel->where('situacao', 0)->orderBy('criado_em', 'DESC')->findAll();
@@ -34,7 +36,7 @@ class Home extends BaseController
         if (!empty($novosPedidos)) {
             $data['novosPedidos'] = $novosPedidos;
         }
-
+        // dd($data['clientesMaisAssiduos']);
         return view('Admin/Home/index', $data);
     }
 

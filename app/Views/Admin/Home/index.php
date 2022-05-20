@@ -15,7 +15,6 @@
 <?php echo $this->endSection(); ?>
 
 
-
 <!-- Aqui enviamos para o template principal o conteúdo -->
 <?php echo $this->section('conteudo'); ?>
 
@@ -128,6 +127,92 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title">Produtos + vendidos</p>
+        <ul class="list-arrow">
+          
+          <?php if (!isset($produtosMaisVendidos)): ?>
+
+            <p class="card-title text-info">Não há dados para exibir no momento</p>
+
+          <?php else: ?>
+
+            <?php foreach($produtosMaisVendidos as $produtos): ?>
+
+              <li class="mb-2">
+                <?php echo word_limiter($produto->produto); ?>
+                <span class="badge badge-pill badge-primary float-right"><?php echo esc($produto->quantidade); ?></span>
+              </li>
+            
+            <?php endforeach; ?>
+          <?php endif; ?>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title">Top clientes</p>
+        <ul class="list-arrow">
+          
+          <?php if (!isset($clientesMaisAssiduos)): ?>
+
+            <p class="card-title text-info">Não há dados para exibir no momento</p>
+
+          <?php else: ?>
+            
+            <?php foreach($clientesMaisAssiduos as $cliente): ?>
+
+              <li class="mb-2">
+                <?php echo esc($cliete->nome); ?>
+                <span class="badge badge-pill badge-success float-right"><?php echo esc($cliente->pedidos); ?></span>
+              </li>
+            
+            <?php endforeach; ?>
+          <?php endif; ?>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title">Top entregadores</p>
+        <ul class="list-unstyled">
+          
+          <?php if (!isset($entregadoresMaisAssiduos)): ?>
+
+            <p class="card-title text-info">Não há dados para exibir no momento</p>
+
+          <?php else: ?>
+            
+            <?php foreach($entregadoresMaisAssiduos as $entregador): ?>
+
+              <li class="mb-2">
+                <img class="rounded-circle" width="40" src="<?php echo site_url("admin/entregadores/imagem/$entregador->imagem"); ?>" alt="<?php echo esc($entregador->nome) ?>"/>
+                <?php echo esc($entregador->nome); ?>
+                <span class="badge badge-pill badge-warning float-right"><?php echo esc($entregador->entregas); ?></span>
+              </li>
+            
+            <?php endforeach; ?>
+          <?php endif; ?>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <?php echo $this->endSection(); ?>

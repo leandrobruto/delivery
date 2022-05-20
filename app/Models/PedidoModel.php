@@ -101,7 +101,18 @@ class PedidoModel extends Model
 
         return $this->select('COUNT(*) AS total')
                     ->selectSum('valor_pedido')
-                    ->where('situacao', 3)
+                    ->where('situacao', 3) // Cancelado
                     ->first();
+    }
+
+    public function recuperaClientesMaisAssiduos(int $quantidade) {
+
+        return $this->select('usuarios.nome, COUNT(*) AS pedidos')
+                    ->join('usuarios', 'usuarios.id = pedidos.usuario_id')
+                    ->where('situacao', 2) // Entregue
+                    ->limit($quantidade)
+                    ->groupBy('usuarios.nome')
+                    ->orderBy('pedidos', 'DESC')
+                    ->find();
     }
 }

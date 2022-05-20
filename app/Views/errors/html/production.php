@@ -16,7 +16,7 @@
 
 		<h1 class="headline">Whoops!</h1>
 
-		<p class="lead">We seem to have hit a snag. Please try again later...</p>
+		<p class="lead">Não conseguimos processar a página que você precisa. Nossos desenvolvedores já foram notificados e pedimos a gentileza que tente novamente mais tarde..</p>
 
 	</div>
 
