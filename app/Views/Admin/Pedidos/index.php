@@ -117,7 +117,8 @@
             $this.val("");
             return false;
           } else {
-            window.location.href = '<?php echo base_url('admin/pedidos/show'); ?>/' + ui.item.id;
+            console.log(ui.item);
+            window.location.href = '<?php echo base_url('admin/pedidos/show'); ?>/' + ui.item.value;
           }
         }
       });

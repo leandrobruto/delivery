@@ -40,7 +40,7 @@ class Pedidos extends BaseController
         $retorno = [];
 
         foreach ($pedidos as $pedido) {
-            $data['id'] = $pedido->id;
+
             $data['value'] = $pedido->codigo;
 
             $retorno[] = $data;
@@ -135,14 +135,13 @@ class Pedidos extends BaseController
             }
 
             /* Usaremos para avisar o admin que o pedido foi cancelado (ligar entregador) */
-            $situacaoAnterior = $pedido->situacao;
+            $situacaoAnteriorPedido = $pedido->situacao;
 
             $pedido->fill($this->request->getPost());
 
             if (!$pedido->hasChanged()) {
                 return redirect()->back()->with('info', "Não há novas informações para atualizar.");
             }
-
             
             if ($this->pedidoModel->save($pedido)) {
 
@@ -155,9 +154,27 @@ class Pedidos extends BaseController
                     $this->enviaEmailPedidoSaiuEntrega($pedido);
                 }
 
+                if ($pedido->situacao == 2) {
+
+                    $this->enviaEmailPedidoFoiEntregue($pedido);
+
+                    $this->insereProdutosDoPedido($pedido);
+                }
+
+                if ($pedido->situacao == 3) {
+
+                    $this->enviaEmailPedidoFoiCancelado($pedido);
+
+                    if ($situacaoAnteriorPedido == 1) {
+
+                        session()->setFlashData('atencao', 'Administrador, esse pedido está em rota de entrega, por favor entre em contato com o entregador para que ele retorne para a loja.');
+                    }
+                }
                 
-                return redirect()->back()->with('sucesso', 'Pedido atualizado com sucesso!');
+                return redirect()->back()->to(site_url("admin/pedidos/show/$codigoPedido"))->with('sucesso', 'Pedido atualizado com sucesso!');
+            
             } else {
+
                 return redirect()->back()->with('errors_model', $this->pedidoModel->errors())
                                     ->with('atencao', "Por favor, verifique os erros abaixo.");
             }
@@ -166,6 +183,31 @@ class Pedidos extends BaseController
             /* Não é POST */
             return redirect()->back();
         }
+    }
+
+    public function excluir($codigoPedido = null)
+    {
+        $pedido = $this->pedidoModel->buscaPedidoOu404($codigoPedido);
+
+        if ($pedido->situacao < 2) {
+
+            return redirect()->back()->with('errors_model', $this->pedidoModel->errors())
+                                    ->with('info', "Apenas pedidos <strong>entregues ou cancelados</strong> podem ser excluídos.");
+        }
+
+        if ($this->request->getMethod() === 'post') {
+
+            $this->pedidoModel->delete($pedido->id);
+
+            return redirect()->to(site_url('admin/pedidos'))->with('successo', 'O pedido foi excluído com sucesso');
+        }
+
+        $data = [
+            'titulo'     => "Excluindo o pedido $pedido->codigo",
+            'pedido' => $pedido,
+        ];
+        
+        return view('Admin/Pedidos/excluir', $data);
     }
 
     private function enviaEmailPedidoSaiuEntrega(object $pedido) {
@@ -182,6 +224,60 @@ class Pedidos extends BaseController
         $email->setMessage($mensagem);
 
         $email->send();
+    }
+
+    private function enviaEmailPedidoFoiEntregue(object $pedido) {
+
+        $email = \Config\Services::email();
+
+        $email->setFrom('no-reply@delivery.com.br', 'Food Delivery');
+        $email->setTo($pedido->email);
+
+        $email->setSubject("Pedido $pedido->codigo foi entregue");
+        
+        $mensagem = view('Admin/Pedidos/pedido_foi_entregue_email', ['pedido' => $pedido]);
+
+        $email->setMessage($mensagem);
+
+        $email->send();
+    }
+
+    private function enviaEmailPedidoFoiCancelado(object $pedido) {
+
+        $email = \Config\Services::email();
+
+        $email->setFrom('no-reply@delivery.com.br', 'Food Delivery');
+        $email->setTo($pedido->email);
+
+        $email->setSubject("Pedido $pedido->codigo foi cancelado");
+        
+        $mensagem = view('Admin/Pedidos/pedido_foi_cancelado_email', ['pedido' => $pedido]);
+
+        $email->setMessage($mensagem);
+
+        $email->send();
+    }
+
+    private function insereProdutosDoPedido(object $pedido) {
+
+        $pedidoProdutoModel = new \App\Models\PedidoProdutoModel();
+
+        $produtos = unserialize($pedido->produtos);
+
+        /* Receberá o push */
+        $produtosDoPedido = [];
+
+        foreach ($produtos as $produto) {
+
+            array_push($produtosDoPedido, [
+                'pedido_id' => $pedido->id,
+                'produto' => $produto['nome'],
+                'quantidade' => $produto['quantidade'],
+            ]);
+        }
+
+        $pedidoProdutoModel->insertBatch($produtosDoPedido);
+
     }
 
 }

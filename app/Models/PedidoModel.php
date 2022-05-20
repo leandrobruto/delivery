@@ -39,7 +39,7 @@ class PedidoModel extends Model
             return [];
         }
 
-        return $this->select('id, codigo')
+        return $this->select('codigo')
                     ->like('codigo', $term)
                     ->withDeleted(true)
                     ->get()
