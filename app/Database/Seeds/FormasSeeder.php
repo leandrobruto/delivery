@@ -15,8 +15,8 @@ class FormasSeeder extends Seeder
             'ativo' => true,
         ];
 
-        $formaModel->skipValidation(true)->insert($forma);
+        $formaModel->skipValidation(true)->protect(false)->insert($forma);
 
-        dd($formaModel->errors());
+        // dd($formaModel->errors());
     }
 }

@@ -11,23 +11,17 @@ class UsuarioSeeder extends Seeder
         $usuarioModel = new \App\Models\UsuarioModel;
 
         $usuario = [
-            'nome' => 'Leon',
-            'email' => 'leon@gmail.com',
+            'nome' => 'Ademiro',
+            'email' => 'ademiro@admin.com',
+            'password' => '123qweasd',
             'cpf' => '759.859.440-69',
             'telefone' => '99 - 9999-9999',
+            'is_admin' => true,
+            'ativo' => true,
         ];
 
-        $usuarioModel->protect(false)->insert($usuario);
+        $usuarioModel->skipValidation(true)->protect(false)->insert($usuario);
 
-        $usuario = [
-            'nome' => 'cordylus',
-            'email' => 'cordylus@gmail.com',
-            'cpf' => '085.923.310-30',
-            'telefone' => '88 - 8888-8888',
-        ];
-
-        $usuarioModel->protect(false)->insert($usuario);
-
-        dd($usuarioModel->errors());
+        // dd($usuarioModel->errors());
     }
 }

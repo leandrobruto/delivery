@@ -45,7 +45,7 @@ class Database extends Config
         'swapPre'  => '',
         'encrypt'  => false,
         'compress' => false,
-        'strictOn' => false,
+        'strictOn' => true, // Para hospedar
         'failover' => [],
         'port'     => 3306,
     ];
