@@ -89,6 +89,10 @@
 
               <?php else: ?>
 
+              <h6><i class="mdi mdi-shopping text-primary"></i>&nbsp;Novos pedidos realizados</h6>
+
+              <hr class="boder-primary">
+
               <div id="atualiza" class="table-responsive">
                 <table class="table table-hover">
                   <thead>

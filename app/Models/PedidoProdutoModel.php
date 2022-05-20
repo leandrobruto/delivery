@@ -10,4 +10,12 @@ class PedidoProdutoModel extends Model
     protected $returnType       = 'object';
     protected $allowedFields    = ['pedido_id', 'produto', 'quantidade'];
 
+    public function recuperaProdutosMaisVendidos(int $quantidade) {
+
+        return $this->select('produto, quantidade, SUM(quantidade) AS quantidade')
+                    ->limit($quantidade)
+                    ->groupBy('produto')
+                    ->orderBy('quantidade', 'DESC')
+                    ->find(); // O $limit só funciona com o find()
+    }
 }
