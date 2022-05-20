@@ -244,15 +244,6 @@
 
                                 <?php endif; ?>
                                
-                                <div class="pull-right search-block">
-                                    <i class="fa fa-search" id="search" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div id="navbar_search">
-                                <form method="post">
-                                    <input type="text" name="q" class="form-control pull-left" value="" placeholder="Search anything">
-                                    <button type="submit" class="pull-right close" id="search_close"><i class="fa fa-close"></i></button>
-                                </form>
                             </div>
                         </div>
                         <!-- /.navbar_top -->
@@ -274,7 +265,7 @@
                                 <div class="collapse navbar-collapse" id="navbar">
                                     <div class="navbar-right">
                                         <ul class="nav navbar-nav">
-                                            <li><a class="page-scroll" href="#header">Home</a></li>
+                                            <li><a class="page-scroll" href="<?php echo site_url('/'); ?>">Home</a></li>
                                             <li><a class="page-scroll" href="<?php echo site_url('bairros'); ?>">Bairros atendidos</a></li>
                                             <li><a class="page-scroll" href="#footer">Contact</a></li>
 
@@ -475,21 +466,37 @@
 
     <nav class="cd-nav-container right_menu" id="cd-nav">
         <div class="header__open_menu">
-            <a href="index-2.html" class="rmenu_logo" title="yagmurmebel.az">
+            <a href="<?php echo site_url('/'); ?>" class="rmenu_logo" title="Food Delivery">
                 <img src="<?php echo site_url('web/'); ?>src/assets/img/logo.png" alt="logo" />
             </a>
         </div>
-        <div class="right_menu_search">
-            <form method="post">
-                <input type="text" name="q" class="form-control search_input" value="" placeholder="Search anything">
-                <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
         <ul class="rmenu_list">
-            <li><a class="page-scroll" href="#header">Home</a></li>
-            <li><a class="page-scroll" href="<?php echo site_url('bairros'); ?>">Bairros atendidos</a></li>
-            <li><a class="page-scroll" href="#footer">Contact</a></li>
-            <li><a class="page-scroll" href="#footer">Contact</a></li>
+        <li><a class="page-scroll" href="<?php echo site_url('/'); ?>">Home</a></li>
+        <li><a class="page-scroll" href="<?php echo site_url('bairros'); ?>">Bairros atendidos</a></li>
+        <li><a class="page-scroll" href="#footer">Contact</a></li>
+
+        <?php if (session()->has('carrinho') && count(session()->get('carrinho')) > 0): ?>
+
+            <li>
+                <a class="page-scroll" href="<?php echo site_url('carrinho'); ?>">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span style="font-size: 16px !important">
+                
+                        <?php echo count(session()->get('carrinho')); ?>
+
+                    </span>
+                </a>
+            </li>
+
+        <?php endif; ?>
+
+        <?php if (usuarioLogado()): ?>
+            <li><a class="page-scroll" href="<?php echo site_url('conta'); ?>">Minha conta</a></li>
+            <li><a class="page-scroll" href="<?php echo site_url('login/logout'); ?>">Sair</a></li>
+        <?php else: ?>
+            <li><a class="page-scroll" href="<?php echo site_url('login'); ?>">Entrar</a></li>
+            <li><a class="page-scroll" href="<?php echo site_url('registrar'); ?>">Registrar-se</a></li>
+        <?php endif; ?>
         </ul>
         <div class="right_menu_addr top_addr">
             <span><i class="fa fa-map-marker" aria-hidden="true"></i> Brasil, Juazeiro do Norte, 63050-460</span>

@@ -13,6 +13,17 @@
 
     <link rel="stylesheet" href="<?php echo site_url('web/src/assets/css/produto.css'); ?>"/>
 
+    <style>
+
+        @media only screen and (max-width: 767px) {
+            #registrar {
+                min-width: 90% !important;
+            
+            }
+        }
+
+    </style>
+
 <?php echo $this->endSection(); ?>
 
 
@@ -21,7 +32,7 @@
 
 <div class="container section" id="menu" data-aos="fade-up" style="margin-top: 3em">
     <!-- product -->
-    <div class="product-content product-wrap clearfix product-deatil center-block" style="max-width: 40%">
+    <div id="registrar" class="product-content product-wrap clearfix product-deatil center-block" style="max-width: 40% !important;">
         <div class="row">
            
             <div class="col-md-12">

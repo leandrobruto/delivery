@@ -13,6 +13,17 @@
 
     <link rel="stylesheet" href="<?php echo site_url('web/src/assets/css/produto.css'); ?>"/>
 
+    <style>
+
+        @media only screen and (max-width: 767px) {
+            .section-title {
+                font-size: 20px !important;
+                margin-top: -6em !important;
+            }
+        }
+
+    </style>
+
 <?php echo $this->endSection(); ?>
 
 

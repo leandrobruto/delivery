@@ -13,6 +13,21 @@
 
     <link rel="stylesheet" href="<?php echo site_url('web/src/assets/css/produto.css'); ?>"/>
 
+    <style>
+
+        @media only screen and (max-width: 767px) {
+            .section-title {
+                font-size: 20px !important;
+                margin-top: -6em !important;
+            }
+
+            #titulo-sucesso {
+                margin-top: -6em !important;
+            }
+        }
+
+    </style>
+
 <?php echo $this->endSection(); ?>
 
 
@@ -34,7 +49,7 @@
                     </div>
                 <?php endif; ?>
 
-                <div class="col-md-12 col-xs-12">
+                <div id="titulo-sucesso" class="col-md-12 col-xs-12">
                     <h4>No momento o seu pedido está com o status de <?php echo $pedido->exibeSituacaoDoPedido(); ?></h4>
                 </div>
 
