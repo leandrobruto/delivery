@@ -143,7 +143,7 @@
 
           <?php else: ?>
 
-            <?php foreach($produtosMaisVendidos as $produtos): ?>
+            <?php foreach($produtosMaisVendidos as $produto): ?>
 
               <li class="mb-2">
                 <?php echo word_limiter($produto->produto); ?>
@@ -173,7 +173,7 @@
             <?php foreach($clientesMaisAssiduos as $cliente): ?>
 
               <li class="mb-2">
-                <?php echo esc($cliete->nome); ?>
+                <?php echo esc($cliente->nome); ?>
                 <span class="badge badge-pill badge-success float-right"><?php echo esc($cliente->pedidos); ?></span>
               </li>
             
