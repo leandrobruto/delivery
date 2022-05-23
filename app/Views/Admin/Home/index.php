@@ -25,7 +25,7 @@
         <div class="tab-content py-0 px-0">
           <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
             <div class="d-flex flex-wrap justify-content-xl-between">
-              <div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+              <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                 <i class="mdi mdi-currency-usd icon-lg mr-3 text-primary"></i>
                 <div class="d-flex flex-column justify-content-around">
                   <small class="mb-1 text-muted">Pedidos entregues
