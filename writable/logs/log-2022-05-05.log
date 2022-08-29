@@ -1,0 +1,307 @@
+CRITICAL - 2022-05-05 00:00:34 --> Class 'App\MinhasValidacoes' not found
+#0 /var/www/html/food/system/Validation/Validation.php(115): CodeIgniter\Validation\Validation->loadRuleSets()
+#1 /var/www/html/food/system/BaseModel.php(1347): CodeIgniter\Validation\Validation->run()
+#2 /var/www/html/food/system/BaseModel.php(835): CodeIgniter\BaseModel->validate()
+#3 /var/www/html/food/system/Model.php(651): CodeIgniter\BaseModel->update()
+#4 /var/www/html/food/system/BaseModel.php(656): CodeIgniter\Model->update()
+#5 /var/www/html/food/app/Controllers/Admin/Usuarios.php(130): CodeIgniter\BaseModel->save()
+#6 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->atualizar()
+#7 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#11 {main}
+CRITICAL - 2022-05-05 00:00:38 --> Class 'App\MinhasValidacoes' not found
+#0 /var/www/html/food/system/Validation/Validation.php(115): CodeIgniter\Validation\Validation->loadRuleSets()
+#1 /var/www/html/food/system/BaseModel.php(1347): CodeIgniter\Validation\Validation->run()
+#2 /var/www/html/food/system/BaseModel.php(835): CodeIgniter\BaseModel->validate()
+#3 /var/www/html/food/system/Model.php(651): CodeIgniter\BaseModel->update()
+#4 /var/www/html/food/system/BaseModel.php(656): CodeIgniter\Model->update()
+#5 /var/www/html/food/app/Controllers/Admin/Usuarios.php(130): CodeIgniter\BaseModel->save()
+#6 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->atualizar()
+#7 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#11 {main}
+CRITICAL - 2022-05-05 00:20:09 --> Undefined variable: usuario
+#0 /var/www/html/food/app/Controllers/Admin/Usuarios.php(144): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->excluir()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 15:56:22 --> syntax error, unexpected '}', expecting ';'
+#0 /var/www/html/food/system/Router/Router.php(175): CodeIgniter\Router\Router->autoRoute()
+#1 /var/www/html/food/system/CodeIgniter.php(726): CodeIgniter\Router\Router->handle()
+#2 /var/www/html/food/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 16:36:40 --> Call to undefined method App\Models\UsuarioModel::withDeletedWhere
+#0 /var/www/html/food/app/Controllers/Admin/Usuarios.php(178): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(165): App\Controllers\Admin\Usuarios->buscaUsuarioOu404()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerexclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 16:37:00 --> Call to undefined method App\Models\UsuarioModel::withDeletedwhere
+#0 /var/www/html/food/app/Controllers/Admin/Usuarios.php(178): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(165): App\Controllers\Admin\Usuarios->buscaUsuarioOu404()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerexclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 16:43:06 --> Call to undefined method App\Models\UsuarioModel::desfazerExclusao
+#0 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): CodeIgniter\Model->__call()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 16:48:05 --> Call to undefined method App\Models\UsuarioModel::updade
+#0 /var/www/html/food/app/Models/UsuarioModel.php(90): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): App\Models\UsuarioModel->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 16:48:19 --> Call to undefined method App\Models\UsuarioModel::updade
+#0 /var/www/html/food/app/Models/UsuarioModel.php(90): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): App\Models\UsuarioModel->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 16:50:08 --> Call to undefined method App\Models\UsuarioModel::updade
+#0 /var/www/html/food/app/Models/UsuarioModel.php(90): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): App\Models\UsuarioModel->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 16:50:12 --> Call to undefined method App\Models\UsuarioModel::updade
+#0 /var/www/html/food/app/Models/UsuarioModel.php(90): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): App\Models\UsuarioModel->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 16:52:42 --> Call to undefined method App\Models\UsuarioModel::updade
+#0 /var/www/html/food/app/Models/UsuarioModel.php(91): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): App\Models\UsuarioModel->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 17:01:26 --> Call to undefined method App\Models\UsuarioModel::updade
+#0 /var/www/html/food/app/Models/UsuarioModel.php(91): CodeIgniter\Model->__call()
+#1 /var/www/html/food/app/Controllers/Admin/Usuarios.php(171): App\Models\UsuarioModel->desfazerExclusao()
+#2 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->desfazerExclusao()
+#3 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#4 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#5 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#7 {main}
+CRITICAL - 2022-05-05 17:40:44 --> Undefined variable: pager
+#0 /var/www/html/food/app/Views/Admin/Usuarios/index.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/View/View.php(210): include('/var/www/html/f...')
+#2 /var/www/html/food/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/food/system/Common.php(1089): CodeIgniter\View\View->render()
+#4 /var/www/html/food/app/Controllers/Admin/Usuarios.php(24): view()
+#5 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->index()
+#6 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#10 {main}
+CRITICAL - 2022-05-05 17:42:13 --> Undefined property: App\Controllers\Admin\Usuarios::$paginateModel
+#0 /var/www/html/food/app/Controllers/Admin/Usuarios.php(22): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Admin\Usuarios->index()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:27:17 --> Undefined variable: thi
+#0 /var/www/html/food/app/Controllers/Login.php(21): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:27:40 --> Undefined variable: thi
+#0 /var/www/html/food/app/Controllers/Login.php(22): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:33:28 --> Class 'App\Libraries\Autenticacao' not found
+#0 /var/www/html/food/system/Config/BaseService.php(189): Config\Services::autenticacao()
+#1 /var/www/html/food/app/Config/Services.php(26): CodeIgniter\Config\BaseService::getSharedInstance()
+#2 /var/www/html/food/system/Common.php(929): Config\Services::autenticacao()
+#3 /var/www/html/food/app/Controllers/Login.php(26): service()
+#4 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#5 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#9 {main}
+CRITICAL - 2022-05-05 20:38:12 --> Class 'App\Libraries\Autenticacao' not found
+#0 /var/www/html/food/system/Config/BaseService.php(189): Config\Services::autenticacao()
+#1 /var/www/html/food/app/Config/Services.php(26): CodeIgniter\Config\BaseService::getSharedInstance()
+#2 /var/www/html/food/system/Common.php(929): Config\Services::autenticacao()
+#3 /var/www/html/food/app/Controllers/Login.php(26): service()
+#4 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#5 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#9 {main}
+CRITICAL - 2022-05-05 20:38:22 --> Class 'App\Libraries\Autenticacao' not found
+#0 /var/www/html/food/system/Config/BaseService.php(189): Config\Services::autenticacao()
+#1 /var/www/html/food/app/Config/Services.php(26): CodeIgniter\Config\BaseService::getSharedInstance()
+#2 /var/www/html/food/system/Common.php(929): Config\Services::autenticacao()
+#3 /var/www/html/food/app/Controllers/Login.php(26): service()
+#4 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#5 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#9 {main}
+CRITICAL - 2022-05-05 20:38:54 --> Class 'App\Libraries\Autenticacao' not found
+#0 /var/www/html/food/system/Config/BaseService.php(189): Config\Services::autenticacao()
+#1 /var/www/html/food/app/Config/Services.php(26): CodeIgniter\Config\BaseService::getSharedInstance()
+#2 /var/www/html/food/system/Common.php(929): Config\Services::autenticacao()
+#3 /var/www/html/food/app/Controllers/Login.php(26): service()
+#4 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#5 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#9 {main}
+CRITICAL - 2022-05-05 20:39:00 --> Class 'App\Libraries\Autenticacao' not found
+#0 /var/www/html/food/system/Config/BaseService.php(189): Config\Services::autenticacao()
+#1 /var/www/html/food/app/Config/Services.php(26): CodeIgniter\Config\BaseService::getSharedInstance()
+#2 /var/www/html/food/system/Common.php(929): Config\Services::autenticacao()
+#3 /var/www/html/food/app/Controllers/Login.php(26): service()
+#4 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#5 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#9 {main}
+CRITICAL - 2022-05-05 20:42:36 --> Class 'App\Libraries\Autenticacao' not found
+#0 /var/www/html/food/system/Config/BaseService.php(189): Config\Services::autenticacao()
+#1 /var/www/html/food/app/Config/Services.php(26): CodeIgniter\Config\BaseService::getSharedInstance()
+#2 /var/www/html/food/system/Common.php(929): Config\Services::autenticacao()
+#3 /var/www/html/food/app/Controllers/Login.php(26): service()
+#4 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#5 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#9 {main}
+CRITICAL - 2022-05-05 20:49:48 --> Undefined variable: enha
+#0 /var/www/html/food/app/Controllers/Login.php(28): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:49:58 --> Class 'App\Libraries\App\Models\UsuarioModel' not found
+#0 /var/www/html/food/app/Controllers/Login.php(28): App\Libraries\Autenticacao->login()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:50:29 --> Class 'App\Libraries\App\Models\UsuarioModel' not found
+#0 /var/www/html/food/app/Controllers/Login.php(28): App\Libraries\Autenticacao->login()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:52:50 --> Class 'App\Libraries\App\Models\UsuarioModel' not found
+#0 /var/www/html/food/app/Controllers/Login.php(28): App\Libraries\Autenticacao->login()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 20:53:25 --> Undefined property: CodeIgniter\HTTP\RedirectResponse::$back
+#0 /var/www/html/food/app/Controllers/Login.php(32): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 21:07:02 --> Call to undefined method App\Controllers\Login::pegaUsuarioLogado()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}
+CRITICAL - 2022-05-05 21:13:07 --> Call to undefined method App\Controllers\Login::pegaUsuarioLogado()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}
+CRITICAL - 2022-05-05 21:13:18 --> Call to undefined method App\Controllers\Login::pegaUsuarioLogado()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}
+CRITICAL - 2022-05-05 21:13:49 --> Call to undefined method App\Controllers\Login::pegaUsuarioLogado()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Login->criar()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}
+CRITICAL - 2022-05-05 23:44:03 --> Undefined property: App\Controllers\Home::$load
+#0 /var/www/html/food/app/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Home->email()
+#2 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#3 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#4 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#6 {main}
+CRITICAL - 2022-05-05 23:49:35 --> Call to undefined method CodeIgniter\Email\Email::from()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Home->email()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}

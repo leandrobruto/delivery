@@ -1,0 +1,24 @@
+CRITICAL - 2022-04-29 00:04:21 --> Call to undefined function App\Controllers\returnview()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Testes->index()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}
+CRITICAL - 2022-04-29 00:04:56 --> Invalid file: Teste/index.php
+#0 /var/www/html/food/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/food/system/Common.php(1089): CodeIgniter\View\View->render()
+#2 /var/www/html/food/app/Controllers/Testes.php(16): view()
+#3 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Testes->index()
+#4 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#8 {main}
+CRITICAL - 2022-04-29 00:05:43 --> Call to undefined function App\Controllers\returnview()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Testes->index()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}

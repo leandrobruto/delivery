@@ -1,0 +1,606 @@
+CRITICAL - 2022-05-06 00:05:27 --> Call to undefined method CodeIgniter\Email\Email::from()
+#0 /var/www/html/food/system/CodeIgniter.php(832): App\Controllers\Home->email()
+#1 /var/www/html/food/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController()
+#2 /var/www/html/food/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest()
+#3 /var/www/html/food/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/food/system/Commands/Server/rewrite.php(43): require_once('/var/www/html/f...')
+#5 {main}
+CRITICAL - 2022-05-06 09:47:28 --> Class 'App\Controllers\App\Models\UsuarioModel' not found
+#0 C:\xampp\htdocs\delivery\system\CodeIgniter.php(809): App\Controllers\Password->__construct()
+#1 C:\xampp\htdocs\delivery\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-05-06 09:48:28 --> Class 'App\Controllers\App\Models\UsuarioModel' not found
+#0 C:\xampp\htdocs\delivery\system\CodeIgniter.php(809): App\Controllers\Password->__construct()
+#1 C:\xampp\htdocs\delivery\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-05-06 09:48:32 --> Class 'App\Controllers\App\Models\UsuarioModel' not found
+#0 C:\xampp\htdocs\delivery\system\CodeIgniter.php(809): App\Controllers\Password->__construct()
+#1 C:\xampp\htdocs\delivery\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2022-05-06 11:40:43 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:40:43 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@da.ds')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:40:47 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:40:47 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@da.ds')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:40:51 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:40:51 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@da.ds')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:40:55 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:40:55 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@da.ds')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:40:59 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:40:59 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@da.ds')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:03 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:03 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:08 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:08 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:12 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:12 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:16 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:16 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:20 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:20 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:24 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:24 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:41:35 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:41:35 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:42:18 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:42:18 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 11:42:34 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 11:42:34 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaesqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 12:03:56 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 12:03:56 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('dwad@daf.dsf')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:01:35 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:01:35 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:10 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:10 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:14 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:14 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:18 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:18 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:23 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:23 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:27 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:27 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:31 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:31 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:07:59 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:07:59 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:08:05 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:08:05 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:08:10 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:08:10 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:09:13 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:09:13 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:13:16 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:13:16 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:13:24 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:13:24 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:13:56 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:13:56 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:19:52 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:19:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 15:19:59 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 15:19:59 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(101): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(28): App\Models\UsuarioModel->buscaUsuarioPorEmail('')
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->processaEsqueci()
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 16:29:40 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 16:29:40 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(112): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(57): App\Models\UsuarioModel->buscaUsuarioParaResetarSenha(Object(App\Libraries\Token))
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->reset('dasda')
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 16:29:45 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 16:29:45 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(112): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(57): App\Models\UsuarioModel->buscaUsuarioParaResetarSenha(Object(App\Libraries\Token))
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->reset('dasdasd')
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-05-06 16:43:52 --> Error connecting to the database: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+CRITICAL - 2022-05-06 16:43:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+
+#0 C:\xampp\htdocs\delivery\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\delivery\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\delivery\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\delivery\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\delivery\app\Models\UsuarioModel.php(112): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\delivery\app\Controllers\Password.php(57): App\Models\UsuarioModel->buscaUsuarioParaResetarSenha(Object(App\Libraries\Token))
+#6 C:\xampp\htdocs\delivery\system\CodeIgniter.php(832): App\Controllers\Password->reset('dasdas')
+#7 C:\xampp\htdocs\delivery\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Password))
+#8 C:\xampp\htdocs\delivery\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\delivery\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\delivery\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
